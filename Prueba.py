@@ -7,7 +7,7 @@ def Escribe_Mensaje():
     print(palabra)
     
 def Imprime_Mensaje():
-    print("Hola Mundo")
+    print("JACPB PAJERO")
 
 def menu():
     print("-------MENU-------")
