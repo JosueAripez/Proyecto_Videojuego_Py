@@ -15,7 +15,8 @@ def Imprime_Numero():
 def menu():
     print("-------MENU-------")
     print("1.- Imprimir un mensaje ya escirto ")
-    print("2.- Escribir t propio mensaje ")
+    print("2.- Escribir tu propio mensaje ")
+    print("3.- Imprime un numero ya escrito ")
     print("0.- Salir ")
     
 while True:
