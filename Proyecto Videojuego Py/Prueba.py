@@ -9,6 +9,9 @@ def Escribe_Mensaje():
 def Imprime_Mensaje():
     print("JACOB PAJERO")
 
+def Imprime_Numero():
+    print("12345098765432")
+
 def menu():
     print("-------MENU-------")
     print("1.- Imprimir un mensaje ya escirto ")
@@ -30,5 +33,9 @@ while True:
         input("Enter para borrar")
         os.system('cls')
         continue
+    elif op == 3:
+        Imprime_Numero()
+        input("Enter para borrar")
+        os.system('cls')
     elif op == 0:
         break
