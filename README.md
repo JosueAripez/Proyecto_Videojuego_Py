@@ -3,12 +3,12 @@ Proyecto de un videojuego ludico programado en python
 
 AUTORES:
 
-  Jose Abraham Beristain Navarro
+ | |    Jose Abraham Beristain Navarro
 
-   Josue Francisco Rojas Aripez
+ | |    Josue Francisco Rojas Aripez
 
-  Univerdad Autonoma de Baja California
+Univerdad Autonoma de Baja California
 
-  Facultad de Ingenieria Arquitectura y Diseño
+Facultad de Ingenieria Arquitectura y Diseño
 
-  Ensenada Baja Califirnia, Mexico
+Ensenada Baja Califirnia, Mexico
