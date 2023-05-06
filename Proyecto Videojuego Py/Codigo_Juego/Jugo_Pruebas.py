@@ -5,10 +5,23 @@ import pygame
 pygame.init()
 
 # Creando ventana del juego
-ventana = pygame.display.set_mode((640,480))
+ancho = 800
+alto = 600
+
+ventana = pygame.display.set_mode((ancho, alto))
 
 # Titulo de la ventana
 pygame.display.set_caption("4 Paises 1 Bandera") 
+
+# Funcion para dibujado de texto
+
+font = pygame.font.SysFont("arial", 50)
+
+text_color = (0, 0, 255)
+
+def escirbe_texto(text, font, text_color, x, y):
+    image = font.render(text, True, text_color)
+    ventana.blit(image,(x, y))
 
 # Bucle principal, se comprube a si estan pasando los sucesos
 jugando = True
@@ -21,6 +34,9 @@ while jugando:
     
     # Borrando elemntos que se tenian 
     ventana.fill((255, 255, 255)) 
+    
+    # Escribiendo texto
+    escirbe_texto("BIENVENIDO A NUESTRO JUEGO", font, text_color, 160, 250)
     
     # Dar color a la ventana
     ventana.fill("black") 
