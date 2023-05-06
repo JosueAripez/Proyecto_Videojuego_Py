@@ -10,7 +10,7 @@ ventana = pygame.display.set_mode((640,480))
 # Titulo de la ventana
 pygame.display.set_caption("4 Paises 1 Bandera") 
 
-# Bucle principal, se comprube a si estasn pasando los sucesos
+# Bucle principal, se comprube a si estan pasando los sucesos
 jugando = True
 while jugando: 
     
@@ -26,13 +26,12 @@ while jugando:
     ventana.fill("black") 
     
     # Fondo de la ventana
-    fondo = pygame.image.load("imagenes/fondo_banderas.jpg").convert()
+    fondo = pygame.image.load("Proyecto Videojuego Py/imagenes/fondo_banderas.jpg").convert()
     ventana.blit(fondo,(0,0))
     
     # Icono de la ventana 
-    icono = pygame.image.load("imagenes/icono.png").convert()
+    icono = pygame.image.load("Proyecto Videojuego Py/imagenes/icono.png").convert()
     pygame.display.set_icon(icono)
-    
     
     pygame.display.flip()
     
