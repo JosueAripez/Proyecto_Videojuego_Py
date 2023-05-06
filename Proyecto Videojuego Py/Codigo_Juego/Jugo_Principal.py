@@ -4,7 +4,7 @@ pygame.init() # Inicializando
 
 ventana = pygame.display.set_mode((640,480)) # Crenado ventana de juego
 
-pygame.display.set_caption("Entrena Tu Mente") # Poniendo titulo a la ventana 
+pygame.display.set_caption("4 Paises Una Bandera") # Poniendo titulo a la ventana 
 
 jugando = True
 while jugando: # Bucle principal, se comprube a si estasn pasando los sucesos
