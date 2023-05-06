@@ -1,11 +1,25 @@
-import pygame, sys
+import pygame
 
-pygame.init()
+pygame.init() # Inicializando
 
-size = (600,400)
-screen = pygame.display.set_mode(size)
+ventana = pygame.display.set_mode((640,480)) # Crenado ventana de juego
 
-while True:
+pygame.display.set_caption("Entrena Tu Mente") # Poniendo titulo a la ventana 
+
+jugando = True
+while jugando: # Bucle principal, se comprube a si estasn pasando los sucesos
+    
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            sys.exit()
+        if event.type == pygame.QUIT:  #Verificamos si se cerro la ventana
+            jugando = False
+    
+    
+    ventana.fill((255, 255, 255)) # Borrando elemntos que se tenian 
+    
+    ventana.fill("black") # Dando color a la ventana
+    
+    pygame.display.flip()
+    
+    pygame.time.Clock().tick(60) # Controlamos la frecuencia de refresco (FPS)
+
+pygame.quit()
