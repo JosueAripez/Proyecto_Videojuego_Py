@@ -1,5 +1,8 @@
 #Probando Visual Studio y Git Hub
 # Hola Miamor
+# la unico modo de hacer un buen trabajo es amando lo que haces
+# -Steve Jobs
+
 import os
 
 def Escribe_Mensaje():
