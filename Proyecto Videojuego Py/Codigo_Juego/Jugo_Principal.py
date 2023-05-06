@@ -29,6 +29,9 @@ while jugando:
     fondo = pygame.image.load("imagenes/fondo_banderas.jpg")
     ventana.blit(fondo,(0,0))
     
+    # Icono de la ventana 
+    icono = pygame.image.load("imagenes/icono.png")
+    pygame.display.set_icon(icono)
     pygame.display.flip()
     
     pygame.time.Clock().tick(60) # Controlamos la frecuencia de refresco (FPS)
