@@ -1,22 +1,33 @@
+# Main
 import pygame
 
-pygame.init() # Inicializando
+# Inicializando
+pygame.init()
 
-ventana = pygame.display.set_mode((640,480)) # Crenado ventana de juego
+# Creando ventana del juego
+ventana = pygame.display.set_mode((640,480))
 
-pygame.display.set_caption("4 Paises Una Bandera") # Poniendo titulo a la ventana 
+# Titulo de la ventana
+pygame.display.set_caption("4 Paises Una Bandera") 
 
+# Bucle principal, se comprube a si estasn pasando los sucesos
 jugando = True
-while jugando: # Bucle principal, se comprube a si estasn pasando los sucesos
+while jugando: 
     
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:  #Verificamos si se cerro la ventana
+        # Verificamos si se cerro la ventana
+        if event.type == pygame.QUIT:  
             jugando = False
     
+    # Borrando elemntos que se tenian 
+    ventana.fill((255, 255, 255)) 
     
-    ventana.fill((255, 255, 255)) # Borrando elemntos que se tenian 
+    # Dar color a la ventana
+    ventana.fill("black") 
     
-    ventana.fill("black") # Dando color a la ventana
+    # Fondo de la ventana
+    fondo = pygame.image.load("imagenes/fondo_banderas.jpg")
+    ventana.blit(fondo,(0,0))
     
     pygame.display.flip()
     
