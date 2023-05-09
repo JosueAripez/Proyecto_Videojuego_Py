@@ -19,7 +19,7 @@ def Pantalla_Inicio():
         
         fondo = pygame.image.load("Proyecto Videojuego Py/imagenes/fondo_banderas.jpg").convert()
         v_juego.blit(fondo,(0,0))
-        icono = pygame.image.load("Proyecto Videojuego Py/imagenes/icono2.png").convert()
+        icono = pygame.image.load("Proyecto Videojuego Py/imagenes/icono_Def.png").convert()
         pygame.display.set_icon(icono)
         
         for events in pygame.event.get():
@@ -27,7 +27,7 @@ def Pantalla_Inicio():
                 pygame.quit()
             if events.type == pygame.MOUSEBUTTONDOWN:
                 if button.collidepoint(events.pos):
-                    Pantalla_Inicio() 
+                   # Pantalla_Inicio() 
                     pygame.quit()
         a,b = pygame.mouse.get_pos()
         if button.x <= a <= button.x + 110 and button.y <= b <= button.y +60:
