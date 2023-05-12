@@ -5,7 +5,7 @@ import pygame
 pygame.init()
 
 # Creando ventana del juego
-ventana = pygame.display.set_mode((640,480))
+ventana = pygame.display.set_mode((1000,700))
 
 # Titulo de la ventana
 pygame.display.set_caption("4 Paises 1 Bandera") 
