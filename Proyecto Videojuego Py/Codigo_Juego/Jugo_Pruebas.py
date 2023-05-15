@@ -6,7 +6,8 @@ def funcion():
 
 def funcion2():
       Otraventana.state(newstate = "withdraw")
-      root.state(newstate = "normal") #state(newstate = "withdraw")root.deiconify, zoomed()
+      root.state(newstate = "normal") 
+
 
 root = Tk()
 root.state(newstate = "normal")
@@ -27,6 +28,7 @@ miEtiqueta.pack()
 
 abrirVentana1 = Button(Otraventana, text="Abrir ventana principal", bg="green", font= ("Times New Roman", 12), fg="yellow", command=funcion2)
 abrirVentana1.pack()
+
 
 Otraventana.mainloop()
 root.mainloop()

@@ -2,10 +2,20 @@
 
 from tkinter import *
 from tkinter import messagebox
-#from Jugo_Principal_2 import *
 
 # --- Funciones ---
 
+def Records():
+    print("")
+    import webbrowser
+    webbrowser.open("www.google.com")
+    
+def Salir():
+    respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
+    if respuesta == "yes":
+        Ventana_Principal.destroy()
+
+# --- Ventana_ Menu Menu (Seleccion de Continente) ---
 def Abrir_Ventana_Menu():
     print("")
     
@@ -23,24 +33,29 @@ def Abrir_Ventana_Menu():
 
     Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=760, background="black", fg="white", font=("Verdana", 20))
     Selec_Con.place(x=20, y=20)
+    
+    Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_Africa.place(x=20, y=200)
+    
+    Btn_America = Button(Ventana_Menu, text="AMERICA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_America.place(x=530, y=700)
+    
+    Btn_Asia = Button(Ventana_Menu, text="ASIA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_Asia.place(x=530, y=700)
+    
+    Btn_Europa = Button(Ventana_Menu, text="EUROPA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_Europa.place(x=530, y=700)
+    
+    Btn_Oceania = Button(Ventana_Menu, text="OCEANIA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_Oceania.place(x=530, y=700)
+    
 
     Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
     Btn_Volver.place(x=530, y=700)
     
     Ventana_Menu.mainloop()
-    Ventana_Menu.state(newstate = "normal")
-    Ventana_Principal.state(newstate = "withdraw")
-    
-
-def Records():
-    print("")
-    import webbrowser
-    webbrowser.open("www.google.com")
-    
-def Salir():
-    respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
-    if respuesta == "yes":
-        Ventana_Principal.destroy()
+    #Ventana_Menu.state(newstate = "normal")
+    #Ventana_Principal.state(newstate = "withdraw")
     
 # --- Ventana_Principal Principal (Inicio) ---
 
@@ -52,7 +67,10 @@ Ventana_Principal.configure(background="black")
 Ventana_Principal.geometry("1200x800")
 Ventana_Principal.geometry("+30+70")
 Ventana_Principal.config(cursor="hand2")
-    
+
+Selec_Con = LabelFrame(Ventana_Principal, text="BIENVENIDO A", width=1054, height=175, background="black", fg="white", font=("Verdana", 20))
+Selec_Con.place(x=70, y=10)
+
 lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="blue", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
 lbl_Titulo.place(x=75, y=40)
 Btn_Comenazar = Button(Ventana_Principal, text="COMENZAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
