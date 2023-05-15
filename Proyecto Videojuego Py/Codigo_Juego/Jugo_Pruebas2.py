@@ -1,73 +1,34 @@
-import pygame
-# Bucle de Inico (Pantalla Principal)
+# --- Importando ---
 
-def Pantalla_Inicio():
-    pygame.init()
+from tkinter import *
 
-    ancho_v= 1000
-    alto_v =600
-    v_juego = pygame.display.set_mode((ancho_v, alto_v))
+# --- Ventana Principal (Inicio) ---
 
-    pygame.display.set_caption("4 Paises Una Bandera (Pantalla Principal)")
-
-    font = pygame.font.SysFont('Arial', 40, bold = True)
-    surf = font.render('Jugar', True, 'white')
-    button = pygame.Rect(200, 200, 110, 60)
-
-    while True: 
-        # v_juego.fill('pink') Pinar el fondo
-        
-        fondo = pygame.image.load("Proyecto Videojuego Py/imagenes/fondo_banderas.jpg").convert()
-        v_juego.blit(fondo,(0,0))
-        icono = pygame.image.load("Proyecto Videojuego Py/imagenes/icono_Def.png").convert()
-        pygame.display.set_icon(icono)
-        
-        for events in pygame.event.get():
-            if events.type == pygame.QUIT:  
-                pygame.quit()
-            if events.type == pygame.MOUSEBUTTONDOWN:
-                if button.collidepoint(events.pos):
-                   # Pantalla_Inicio() 
-                    pygame.quit()
-        a,b = pygame.mouse.get_pos()
-        if button.x <= a <= button.x + 110 and button.y <= b <= button.y +60:
-            pygame.draw.rect(v_juego, (180, 180, 180), button)
-        else:
-            pygame.draw.rect(v_juego, (110, 110, 110), button)
-        v_juego.blit(surf, (button.x +5, button.y +5))
-
-        
+def Ventana_Principal():
+    Ventana = Tk()
+    Ventana.title("4 PAISES 1 BANDERA")
+    Ventana.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    Ventana.resizable(0,0)
+    Ventana.configure(background="black")
+    Ventana.geometry("1200x800")
+    Ventana.geometry("+30+70")
+    Ventana.config(cursor="plus")
     
-        pygame.display.update()
-Pantalla_Inicio()
- 
-# Inicio Menu (Selector de continentes)
-
-def Inicio_Menu():
-    pygame.init()
+    lbl_Titulo = Label(Ventana, text="4 Paises 1 Bandera", fg="blue", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
+    lbl_Titulo.place(x=75, y=40)
     
-    ancho_v= 1000
-    alto_v =600
-    ventana = pygame.display.set_mode((ancho_v, alto_v))
-
-    pygame.display.set_caption("4 Paises Una Bandera (Inicio Menu)")
- 
-    jugando = True
-    while jugando: 
+    Btn_Comenazar = Button(Ventana, text="COMENZAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10))
+    Btn_Comenazar.place(x=450, y=300)
     
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:  
-                jugando = False
+    Btn_Record = Button(Ventana, text="RECORDS", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10))
+    Btn_Record.place(x=450, y=380)
     
-        ventana.fill((255, 255, 255)) 
+    Btn_Salir = Button(Ventana, text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10))
+    Btn_Salir.place(x=450, y=460)
     
-        ventana.fill("black") 
+    lbl_Create = Label(Ventana, text="Propiedad Intelectual y Creativa de: Jose Abrham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
+    lbl_Create.place(x=5, y=770)
     
-        icono = pygame.image.load("Proyecto Videojuego Py/imagenes/icono2.png").convert()
-        pygame.display.set_icon(icono)
-        fondo = pygame.image.load("Proyecto Videojuego Py/imagenes/fondo_banderas.jpg").convert()
-        ventana.blit(fondo,(0,0))
+    Ventana.mainloop()
     
-        pygame.display.flip()
-
-        pygame.quit()
+Ventana_Principal()
