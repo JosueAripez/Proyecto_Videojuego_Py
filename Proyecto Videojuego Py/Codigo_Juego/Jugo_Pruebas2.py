@@ -16,6 +16,7 @@ def Salir():
         Ventana_Principal.destroy()
 
 # --- Ventana_ Menu Menu (Seleccion de Continente) ---
+
 def Abrir_Ventana_Menu():
     print("")
     
@@ -34,20 +35,20 @@ def Abrir_Ventana_Menu():
     Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=760, background="black", fg="white", font=("Verdana", 20))
     Selec_Con.place(x=20, y=20)
     
-    Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Africa.place(x=20, y=200)
+    Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
+    Btn_Africa.place(x=42, y=110)
     
-    Btn_America = Button(Ventana_Menu, text="AMERICA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_America.place(x=530, y=700)
+    Btn_America = Button(Ventana_Menu, text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
+    Btn_America.place(x=42, y=210)
     
-    Btn_Asia = Button(Ventana_Menu, text="ASIA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Asia.place(x=530, y=700)
+    Btn_Asia = Button(Ventana_Menu, text="ASIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
+    Btn_Asia.place(x=42, y=310)
     
-    Btn_Europa = Button(Ventana_Menu, text="EUROPA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Europa.place(x=530, y=700)
+    Btn_Europa = Button(Ventana_Menu, text="EUROPA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
+    Btn_Europa.place(x=42, y=410)
     
-    Btn_Oceania = Button(Ventana_Menu, text="OCEANIA", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Oceania.place(x=530, y=700)
+    Btn_Oceania = Button(Ventana_Menu, text="OCEANIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
+    Btn_Oceania.place(x=42, y=510)
     
 
     Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
