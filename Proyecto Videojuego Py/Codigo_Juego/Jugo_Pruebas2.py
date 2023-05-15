@@ -2,15 +2,27 @@
 
 from tkinter import *
 from tkinter import messagebox
-#import Jugo_Principal_2
+#from Jugo_Principal_2 import *
 
 # --- Funciones ---
 
 def Abrir_Ventana_Menu():
     print("")
-    #Ventana_Menu = Toplevel()
+    Ventana_Menu = Toplevel()
+    Ventana_Menu.title("4 PAISES 1 BANDERA")
+    Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    Ventana_Menu.resizable(0,0)
+    Ventana_Menu.configure(background="black")
+    Ventana_Menu.geometry("1200x800")
+    Ventana_Menu.geometry("+30+70")
+    Ventana_Menu.config(cursor="hand2")
+
+    Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=760, background="black", fg="white", font=("Verdana", 20))
+    Selec_Con.place(x=20, y=20)
+    Ventana_Menu.mainloop()
     Ventana_Menu.state(newstate = "normal")
     Ventana_Principal.state(newstate = "withdraw")
+    
 
 def Records():
     print("")
@@ -18,7 +30,9 @@ def Records():
     webbrowser.open("www.google.com")
     
 def Salir():
-    Ventana_Principal.destroy()
+    respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
+    if respuesta == "yes":
+        Ventana_Principal.destroy()
     
 # --- Ventana_Principal Principal (Inicio) ---
 
@@ -47,19 +61,3 @@ lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de:
 lbl_Create.place(x=5, y=770)
     
 Ventana_Principal.mainloop()
-
-# --- Ventana_Menu Menu (Seleccion te continentes) ---
-
-Ventana_Menu = Toplevel()
-Ventana_Menu.title("4 PAISES 1 BANDERA")
-Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
-Ventana_Menu.resizable(0,0)
-Ventana_Menu.configure(background="black")
-Ventana_Menu.geometry("1200x800")
-Ventana_Menu.geometry("+30+70")
-Ventana_Menu.config(cursor="hand2")
-
-Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=760, background="black", fg="white", font=("Verdana", 20))
-Selec_Con.place(x=20, y=20)
-
-Ventana_Menu.mainloop()
