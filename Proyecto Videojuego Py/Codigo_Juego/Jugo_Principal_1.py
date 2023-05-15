@@ -2,7 +2,6 @@
 
 from tkinter import *
 from tkinter import messagebox
-#import Jugo_Principal_2
 
 # --- Funciones ---
 
@@ -26,7 +25,7 @@ Ventana_Principal.resizable(0,0)
 Ventana_Principal.configure(background="black")
 Ventana_Principal.geometry("1200x800")
 Ventana_Principal.geometry("+30+70")
-Ventana_Principal.config(cursor="hand2")
+Ventana_Principal.config(cursor="plus")
     
 lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="blue", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
 lbl_Titulo.place(x=75, y=40)

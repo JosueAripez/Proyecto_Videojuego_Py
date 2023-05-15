@@ -1,53 +1,32 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import tkinter as tk
-from tkinter import ttk
-from tkinter.font import Font, nametofont
-class Linkbutton(ttk.Button):
-    
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        
-        # Obtener el nombre de la fuente por defecto.
-        label_font = nametofont("TkDefaultFont").cget("family")
-        self.font = Font(family=label_font, size=9)
-        
-        # Crear un estilo para el hipervínculo.
-        style = ttk.Style()
-        style.configure(
-            "Link.TLabel", foreground="#357fde", font=self.font)
-        
-        # Aplicarlo a la clase actual.
-        self.configure(style="Link.TLabel", cursor="hand2")
-        
-        # Configurar los eventos de entrada y salida del mouse.
-        self.bind("<Enter>", self.on_mouse_enter)
-        self.bind("<Leave>", self.on_mouse_leave)
-    
-    def on_mouse_enter(self, event):
-        # Aplicar subrayado.
-        self.font.configure(underline=True)
-    
-    def on_mouse_leave(self, event):
-        # Remover subrayado.
-        self.font.configure(underline=False)
-class Application(ttk.Frame):
-    
-    def __init__(self, main_window):
-        super().__init__(main_window)
-        main_window.title("Hipervínculo en tkinter")
-        self.create_widgets()
-    
-    def create_widgets(self):
-        self.link = Linkbutton(self,
-            text="Clic en el hipervínculo", command=self.link_clicked)
-        self.link.place(x=40, y=70)
-        self.place(width=300, height=200)
-    
-    def link_clicked(self):
-        print("Clicked!")
-        import webbrowser
-        webbrowser.open("recursospython.com")
-main_window = tk.Tk()
-app = Application(main_window)
-app.mainloop()
+from tkinter import *
+
+def funcion():
+      Otraventana.state(newstate = "normal")
+      root.state(newstate = "withdraw")
+
+def funcion2():
+      Otraventana.state(newstate = "withdraw")
+      root.state(newstate = "normal") #state(newstate = "withdraw")root.deiconify, zoomed()
+
+root = Tk()
+root.state(newstate = "normal")
+root.geometry("250x150+300+100")
+root.resizable(0, 0)
+root.title("Ventana 1")
+
+abrirVentana2 = Button(root, text="Abrir ventana 2", bg="green", font= ("Times New Roman", 12), fg="yellow", command=funcion)
+abrirVentana2.pack()
+
+Otraventana = Toplevel()
+Otraventana.state(newstate = "withdraw")
+Otraventana.geometry("250x150+300+100")
+Otraventana.title("Ventana 2")
+
+miEtiqueta = Label(Otraventana, text="Bienvenido a la ventana 2", bg="#252850", font=("Times New Roman", 12), fg="yellow")
+miEtiqueta.pack()
+
+abrirVentana1 = Button(Otraventana, text="Abrir ventana principal", bg="green", font= ("Times New Roman", 12), fg="yellow", command=funcion2)
+abrirVentana1.pack()
+
+Otraventana.mainloop()
+root.mainloop()
