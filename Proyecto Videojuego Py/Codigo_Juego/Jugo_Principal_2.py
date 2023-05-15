@@ -22,6 +22,10 @@ Ventana_Menu.config(cursor="hand2")
 Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=760, background="black", fg="white", font=("Verdana", 20))
 Selec_Con.place(x=20, y=20)
 
+Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10))
+Btn_Volver.place(x=530, y=700)
+
+
 # --- Final ---
 
 Ventana_Menu.mainloop()

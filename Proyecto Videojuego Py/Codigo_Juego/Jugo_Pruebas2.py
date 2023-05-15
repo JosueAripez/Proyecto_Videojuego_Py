@@ -59,5 +59,7 @@ Btn_Salir.place(x=450, y=460)
     
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abrham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=770)
+
+# --- Fin ---
     
 Ventana_Principal.mainloop()
