@@ -11,4 +11,4 @@ Univerdad Autonoma de Baja California
 
 Facultad de Ingenieria Arquitectura y Diseño
 
-Ensenada Baja Califirnia, Mexico
+Ensenada Baja California, Mexico
