@@ -7,7 +7,7 @@ from tkinter import messagebox
 
 def Records():
     import webbrowser
-    webbrowser.open("www.google.com")
+    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
     
 def Salir():
     respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
@@ -15,12 +15,12 @@ def Salir():
         Ventana_Principal.destroy()
         
 def Abrir_Ventana_Menu():
-      Ventana_Menu.state(newstate = "normal")
-      Ventana_Principal.state(newstate = "withdraw")
+    Ventana_Menu.state(newstate = "normal")
+    Ventana_Principal.state(newstate = "withdraw")
 
 def Volver():
-      Ventana_Menu.state(newstate = "withdraw")
-      Ventana_Principal.state(newstate = "normal") 
+    Ventana_Menu.state(newstate = "withdraw")
+    Ventana_Principal.state(newstate = "normal") 
 
 # --- Ventana_ Menu Menu (Seleccion de Continente) ---
 

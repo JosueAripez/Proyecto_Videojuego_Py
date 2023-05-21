@@ -2,13 +2,14 @@
 
 from tkinter import *
 from tkinter import messagebox
+from tkinter import PhotoImage
 
 # --- Funciones ---
 
 def Records():
     print("")
     import webbrowser
-    webbrowser.open("www.google.com")
+    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
     
 def Salir():
     respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
@@ -82,6 +83,13 @@ Btn_Salir = Button(Ventana_Principal, text="SALIR", width=30, height=3, backgrou
 Btn_Salir.place(x=450, y=460)
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abrham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=770)
+
 # --- Fin ---
-    
+
 Ventana_Principal.mainloop()
+
+
+
+Fondo_Ven = PhotoImage(file = "Proyecto Videojuego Py\imagenes\Fondo_Pantalla.jpg")
+background = Label(image = Fondo_Ven, text = "Proyecto Videojuego Py\imagenes\Fondo_Pantalla.jpg")
+background.place(x = 0, y = 0, relwidth = 1, relheight = 1)
