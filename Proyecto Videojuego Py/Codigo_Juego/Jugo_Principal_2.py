@@ -15,7 +15,7 @@ Ventana_Menu.title("4 PAISES 1 BANDERA")
 Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
 Ventana_Menu.resizable(0,0)
 Ventana_Menu.configure(background="black")
-Ventana_Menu.geometry("1200x800")
+Ventana_Menu.geometry("1200x700")
 Ventana_Menu.geometry("+30+70")
 Ventana_Menu.config(cursor="hand2")
 
@@ -23,7 +23,7 @@ Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160
 Selec_Con.place(x=20, y=20)
 
 Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10))
-Btn_Volver.place(x=530, y=700)
+Btn_Volver.place(x=530, y=600)
 
 
 # --- Final ---
