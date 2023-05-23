@@ -8,8 +8,7 @@ import random
 # --- Funciones ---
 
 def Africa():
-    print("")
-    ventana_Africa= Tk()
+    ventana_Africa= Toplevel()
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Africa.resizable(0,0)
