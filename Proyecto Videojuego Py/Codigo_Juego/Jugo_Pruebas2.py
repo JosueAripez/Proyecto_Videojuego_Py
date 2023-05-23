@@ -66,13 +66,16 @@ Ventana_Principal.title("4 PAISES 1 BANDERA")
 Ventana_Principal.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
 Ventana_Principal.resizable(0,0)
 Ventana_Principal.configure(background="black")
-Ventana_Principal.geometry("1200x650")
+Ventana_Principal.geometry("1200x650") #650
 Ventana_Principal.geometry("+75+10")
 Ventana_Principal.config(cursor="hand2")
 
-Fondo_Ven = PhotoImage(file = "")
-background = Label(Ventana_Principal, image=Fondo_Ven)
-background.place(x=10, y=10)
+"""
+Fondo = ["C:\Users\jossu\OneDrive\Documentos\Proyecto_Videojuego_Py\Proyecto Videojuego Py\imagenes\Fondo_Band.png"]
+Fondo_Ven = PhotoImage(file = Fondo)
+Lbl_Fondo = Label(Ventana_Principal, image=Fondo_Ven)
+#Lbl_Fondo.place(x=10, y=10)
+"""
 
 Selec_Con = LabelFrame(Ventana_Principal, text="BIENVENIDO A", width=1054, height=175, background="black", fg="white", font=("Verdana", 20))
 Selec_Con.place(x=70, y=10)
