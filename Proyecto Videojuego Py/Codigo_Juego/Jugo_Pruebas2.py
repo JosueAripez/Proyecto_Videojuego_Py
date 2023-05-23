@@ -3,6 +3,7 @@
 from tkinter import *
 from tkinter import messagebox
 from tkinter import PhotoImage
+import random
 
 # --- Funciones ---
 
@@ -19,7 +20,6 @@ def Salir():
 # --- Ventana_ Menu Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
-    print("")
     
     def Volver():
         Ventana_Menu.destroy()
@@ -29,11 +29,11 @@ def Abrir_Ventana_Menu():
     Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     Ventana_Menu.resizable(0,0)
     Ventana_Menu.configure(background="black")
-    Ventana_Menu.geometry("1200x800")
-    Ventana_Menu.geometry("+30+70")
+    Ventana_Menu.geometry("1200x650")
+    Ventana_Menu.geometry("+75+10")
     Ventana_Menu.config(cursor="hand2")
 
-    Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=760, background="black", fg="white", font=("Verdana", 20))
+    Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=600, background="black", fg="white", font=("Verdana", 20))
     Selec_Con.place(x=20, y=20)
     
     Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
@@ -53,7 +53,7 @@ def Abrir_Ventana_Menu():
     
 
     Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Volver.place(x=530, y=700)
+    Btn_Volver.place(x=1070, y=50) #x=530
     
     Ventana_Menu.mainloop()
     #Ventana_Menu.state(newstate = "normal")
@@ -66,9 +66,13 @@ Ventana_Principal.title("4 PAISES 1 BANDERA")
 Ventana_Principal.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
 Ventana_Principal.resizable(0,0)
 Ventana_Principal.configure(background="black")
-Ventana_Principal.geometry("1200x800")
-Ventana_Principal.geometry("+30+70")
+Ventana_Principal.geometry("1200x650")
+Ventana_Principal.geometry("+75+10")
 Ventana_Principal.config(cursor="hand2")
+
+Fondo_Ven = PhotoImage(file = "")
+background = Label(Ventana_Principal, image=Fondo_Ven)
+background.place(x=10, y=10)
 
 Selec_Con = LabelFrame(Ventana_Principal, text="BIENVENIDO A", width=1054, height=175, background="black", fg="white", font=("Verdana", 20))
 Selec_Con.place(x=70, y=10)
@@ -82,14 +86,8 @@ Btn_Record.place(x=450, y=380)
 Btn_Salir = Button(Ventana_Principal, text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
 Btn_Salir.place(x=450, y=460)
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abrham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
-lbl_Create.place(x=5, y=770)
+lbl_Create.place(x=5, y=620)
 
 # --- Fin ---
 
 Ventana_Principal.mainloop()
-
-
-
-Fondo_Ven = PhotoImage(file = "Proyecto Videojuego Py\imagenes\Fondo_Pantalla.jpg")
-background = Label(image = Fondo_Ven, text = "Proyecto Videojuego Py\imagenes\Fondo_Pantalla.jpg")
-background.place(x = 0, y = 0, relwidth = 1, relheight = 1)
