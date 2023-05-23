@@ -7,6 +7,52 @@ import random
 
 # --- Funciones ---
 
+def Africa():
+    print("")
+    ventana_Africa= Tk()
+    ventana_Africa.title("4 PAISES 1 BANDERA")
+    ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_Africa.resizable(0,0)
+    ventana_Africa.configure(background="black")
+    ventana_Africa.geometry("1200x650")
+    ventana_Africa.geometry("+75+10")
+    ventana_Africa.config(cursor="hand2")
+
+
+    lbl_Titulo = Label(ventana_Africa, text="IMAGENES ALEATORIAS:", background="black", fg="white")
+    lbl_Titulo.place(x=10, y=10)
+
+
+    #Abraham: Para imagenes aleatorias
+    imagenes = ["Proyecto videojuego Py/imagenes/Banderas/Africa/Angola-Bandera-Africa.png", "Proyecto videojuego Py/imagenes/Banderas/Africa/Argelia-Bandera-Africa.png", "Proyecto videojuego Py/imagenes/Banderas/Africa/Benin-Bandera-Africa.png", "Proyecto videojuego Py/imagenes/Banderas/Africa/Botsuana-Bandera-Africa.png", "Proyecto videojuego Py/imagenes/Banderas/Africa/Burkina-Faso-Bandera-Africa.png"]
+    bandera = random.choice(imagenes)
+    foto=PhotoImage(file=bandera)
+    lbl_Bandera = Label(ventana_Africa, image=foto)
+    lbl_Bandera.place(x=480, y=100)
+
+    #Abraham: Texto de los botones aleatorio
+    paises = ["Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso"]
+
+    texto = random.choice(paises)
+    btn_Opcion1 = Button(ventana_Africa, text=texto, width=35, height=10)
+    btn_Opcion1.place(x=30, y=450)
+
+    texto = random.choice(paises)
+    btn_Opcion2 = Button(ventana_Africa, text=texto, width=35, height=10)
+    btn_Opcion2.place(x=320, y=450)
+
+    texto = random.choice(paises)
+    btn_Opcion3 = Button(ventana_Africa, text=texto, width=35, height=10)
+    btn_Opcion3.place(x=610, y=450)
+
+    texto = random.choice(paises)
+    btn_Opcion4 = Button(ventana_Africa, text=texto, width=35, height=10)
+    btn_Opcion4.place(x=900, y=450)
+
+    # --- Fin ---
+
+    ventana_Africa.mainloop()
+
 def Records():
     print("")
     import webbrowser
@@ -36,7 +82,7 @@ def Abrir_Ventana_Menu():
     Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=600, background="black", fg="white", font=("Verdana", 20))
     Selec_Con.place(x=20, y=20)
     
-    Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
+    Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
     Btn_Africa.place(x=42, y=110)
     
     Btn_America = Button(Ventana_Menu, text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Volver)
@@ -70,12 +116,7 @@ Ventana_Principal.geometry("1200x650") #650
 Ventana_Principal.geometry("+75+10")
 Ventana_Principal.config(cursor="hand2")
 
-"""
-Fondo = ["C:\Users\jossu\OneDrive\Documentos\Proyecto_Videojuego_Py\Proyecto Videojuego Py\imagenes\Fondo_Band.png"]
-Fondo_Ven = PhotoImage(file = Fondo)
-Lbl_Fondo = Label(Ventana_Principal, image=Fondo_Ven)
-#Lbl_Fondo.place(x=10, y=10)
-"""
+
 
 Selec_Con = LabelFrame(Ventana_Principal, text="BIENVENIDO A", width=1054, height=175, background="black", fg="white", font=("Verdana", 20))
 Selec_Con.place(x=70, y=10)
