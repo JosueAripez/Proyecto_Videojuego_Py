@@ -28,6 +28,7 @@ lbl_Bandera = Label(ventana_Oceania, image=foto)
 lbl_Bandera.place(x=480, y=100)
 
 # --- Textp de los Botones Aleatorio ---
+
 paises = ["Australia", "Fiyi", "Islas Marshall", "Islas Solomon", "Kiribati", "Micronesia", "Nauru", "Nueva Zealanda", "Palaos", "Papua Nueva Guinea", "Samoa", "Tonga", "Tuvalu", "Vanuatu"]
 
 texto = random.choice(paises)
