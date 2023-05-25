@@ -206,22 +206,29 @@ def Oceania():
     paises = ["Australia", "Nauru", "Nueva Zelanda", "Fiyi", "Islas Marshall", "Islas Salomon", "Kiribati", "Micronesia", "Palaos", "Papua Nueva Guinea", "Samoa", "Tonga", "Tuvalu", "Vanuatu"]
 
     texto = paises[num[0]-1]
-    btn_Opcion1 = Button(ventana_Oceania, text=texto, width=35, height=10)
+    btn_Opcion1 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(1))
     btn_Opcion1.place(x=30, y=450)
 
     texto = paises[num[1]-1]
-    btn_Opcion2 = Button(ventana_Oceania, text=texto, width=35, height=10)
+    btn_Opcion2 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(2))
     btn_Opcion2.place(x=320, y=450)
 
     texto = paises[num[2]-1]
-    btn_Opcion3 = Button(ventana_Oceania, text=texto, width=35, height=10)
+    btn_Opcion3 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(3))
     btn_Opcion3.place(x=610, y=450)
 
     texto = paises[num[3]-1]
-    btn_Opcion4 = Button(ventana_Oceania, text=texto, width=35, height=10)
+    btn_Opcion4 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(4))
     btn_Opcion4.place(x=900, y=450)
     
     ventana_Oceania.mainloop()
+
+
+def respuesta(op):
+    if op == 1:
+        print("hola")
+        
+            
 
 
 def Records():
