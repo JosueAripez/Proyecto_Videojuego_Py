@@ -76,7 +76,6 @@ def Africa():
 
     #Abraham: Texto de los botones aleatorio
     paises = ["Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso"]
-
     texto = random.choice(paises)
     btn_Opcion1 = Button(ventana_Africa, text=texto, width=35, height=10)
     btn_Opcion1.place(x=30, y=450)
