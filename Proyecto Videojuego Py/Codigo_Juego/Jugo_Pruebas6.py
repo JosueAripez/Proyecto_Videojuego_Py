@@ -218,17 +218,23 @@ def Oceania():
     ventana_Oceania.geometry("+75+10")
     ventana_Oceania.config(cursor="hand2")
 
-    lbl_Titulo = Label(ventana_Oceania, text="OCEANIA:", background="white", fg="black")
+    lbl_Titulo = Label(ventana_Oceania, text="OCEANIA:", bg="white")
     lbl_Titulo.place(x=10, y=10)
 
     # --- Imagenes Aleatorias ---
     
     num = random.sample(range(1,14),4)
+    vidas = 3
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Oceania, image=foto)
     lbl_Bandera.place(x=480, y=100)
+
+    
+
+    lbl_vidas = Label(ventana_Oceania, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
 
     # --- Texto de los Botones Aleatorio ---
     
@@ -261,7 +267,7 @@ def respuesta(boton, op, cont):
     #vidas = 3
     if op == 1:
         boton.config(bg="green")
-        time.sleep(1)
+        time.sleep(0.2)
         continente[cont]()
     else:
         boton.config(bg="red")
@@ -281,6 +287,8 @@ def Salir():
         Ventana_Principal.destroy()
 
 # --- Menu (Seleccion de Continente) ---
+
+
 
 def Abrir_Ventana_Menu():
     

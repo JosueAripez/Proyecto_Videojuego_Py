@@ -109,7 +109,7 @@ def Salir():
 # --- Ventana_ Menu Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
-    
+    Ventana_Principal.withdraw()
     def Volver():
         Ventana_Menu.destroy()
     
