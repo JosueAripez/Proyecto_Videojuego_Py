@@ -8,7 +8,9 @@ from tkinter import PhotoImage
 import random
 
 # --- Funciones ---
+
 def Africa():
+    
     ventana_Africa= Toplevel()
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -22,7 +24,8 @@ def Africa():
     lbl_Titulo = Label(ventana_Africa, text="AFRICA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
 
-    #Abraham: Para imagenes aleatorias
+    # --- Imagenes Aleatorias ---
+    
     num = random.sample(range(1,56),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
@@ -30,7 +33,8 @@ def Africa():
     lbl_Bandera = Label(ventana_Africa, image=foto)
     lbl_Bandera.place(x=480, y=100)
 
-    #Abraham: Texto de los botones aleatorio
+    # --- Texto de los botones aleatortios ---
+    
     paises = ["Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso", "Burundi", "Cabo Verde", "Camerun", "Chad", "Comoras", "Costa de Marfil", "Egipto", "Eritrea", "Etiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea Bisau", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia", "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio", "Mauritania", "Mozambique", "Naminia", "Niger", "Nigeria", "Republica Centroafricana", "Rpublica del Congo", "Republica Democratica del combo", "Ruanda", "Sahara", "Santo Tome y Principe", "Senegal", "Seychelles", "Sierra Leona", "Somalia", "Somalilandia", "Sauzilandia", "Sudafrica", "Sudan", "Sudan del Sur", "Tanzania", "Togo", "Tunez", "Uganda", "Yibuti", "Zambia", "Zimbaue"]
     
     pos = [30, 320, 610, 900]
@@ -56,6 +60,7 @@ def Africa():
 
 
 def America():
+    
     ventana_America = Toplevel()
     ventana_America.title("4 PAISES 1 BANDERA")
     ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -69,6 +74,7 @@ def America():
     lbl_Titulo.place(x=10, y=10)
 
     # --- Imagenes Aleatorias ---
+    
     num = random.sample(range(1,36),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\America\\band{num[0]}.png"
@@ -77,6 +83,7 @@ def America():
     lbl_Bandera.place(x=480, y=100)
 
     # --- Texto de los Botones Aleatorio ---
+    
     paises = ["Antigua y Barbuba", "Argentina", "Bahamas", "Barbados", "Belice", "Bolivia", "Brasil", "Canada", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominica", "Ecuador", "EEUU", "El Salvador", "Granada", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Puerto Rico", "Republica Dominicana", "San Cristobal y Nieves", "San Vicente y las Granadinas", "Snata Lucia", "Surinam", "Trinidad y Tobago", "Uruguay", "Venezuela"]
 
     pos = [30, 320, 610, 900]
@@ -102,6 +109,7 @@ def America():
 
 
 def Asia():
+    
     ventana_Asia = Toplevel()
     ventana_Asia.title("4 PAISES 1 BANDERA")
     ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -115,6 +123,7 @@ def Asia():
     lbl_Titulo.place(x=10, y=10)
 
     # --- Imagenes Aleatorias ---
+    
     num = random.sample(range(1,44),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Asia\\band{num[0]}.png"
@@ -123,6 +132,7 @@ def Asia():
     lbl_Bandera.place(x=480, y=100)
 
     # --- Texto de los Botones Aleatorio ---
+    
     paises = ["Afganistan", "Arabia Saudita", "Banglades", "Barein", "Birmania", "Brunei", "Butan", "Camboya", "Catar", "China", "Corea del Norte", "Corea del Sur", "Emiratos Arabes Unidos", "Filipinas", "India", "Indonesia", "Irak", "Iran", "Israel", "Japon", "Jordania", "Kazajistan", "Kuwait", "Laos", "Libano", "Malasia", "Maldivas", "Mongolia", "Nepal", "Oman", "Pakistan", "Palestina", "Singapur", "Siria", "Sri Lanka", "Tailandia", "Taiwan", "Tayikistan", "Timor Oriental", "Turkmenistan", "Turquia", "Uzbekistain", "Vietnam", "Yemen"]
 
     pos = [30, 320, 610, 900]
@@ -148,6 +158,7 @@ def Asia():
 
 
 def Europa():
+    
     ventana_Europa = Toplevel()
     ventana_Europa.title("4 PAISES 1 BANDERA")
     ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -161,6 +172,7 @@ def Europa():
     lbl_Titulo.place(x=10, y=10)
 
     # --- Imagenes Aleatorias ---
+    
     num = random.sample(range(1,48),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Europa\\band{num[0]}.png"
@@ -169,6 +181,7 @@ def Europa():
     lbl_Bandera.place(x=480, y=100)
 
     # --- Texto de los Botones Aleatorio ---
+    
     paises = ["Albania", "Alemania", "Andorra", "Armenia", "Austria", "Azerbaiyan", "Belgica", "Bielorrusia", "Bosnia y Herzegovina", "Bulgaria", "Chipre", "Croacia", "Dinamarca", "Eslovaquia", "Eslovenia", "España", "Estonia", "Filandia", "Francia", "Georgia", "Grecia", "Hungria", "Irlanda", "Islandia", "Italia", "Letonia", "Liechtenstein", "Litunia", "Luxemburgo", "Macedonia del Norte", "Malta", "Moldavia", "Monaco", "Montenegro", "Noruega", "Paises Bajos", "Polonia", "Portugal", "Reino Unido", "Republica Checa", "Rumania", "Rusia", "San Marino", "Serbia", "Suecia", "Suiza", "Ucrania", "Vaticano"]
 
     pos = [30, 320, 610, 900]
@@ -194,6 +207,7 @@ def Europa():
 
 
 def Oceania():
+    
     ventana_Oceania = Toplevel()
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -207,6 +221,7 @@ def Oceania():
     lbl_Titulo.place(x=10, y=10)
 
     # --- Imagenes Aleatorias ---
+    
     num = random.sample(range(1,14),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
@@ -215,6 +230,7 @@ def Oceania():
     lbl_Bandera.place(x=480, y=100)
 
     # --- Texto de los Botones Aleatorio ---
+    
     paises = ["Australia", "Nauru", "Nueva Zelanda", "Fiyi", "Islas Marshall", "Islas Salomon", "Kiribati", "Micronesia", "Palaos", "Papua Nueva Guinea", "Samoa", "Tonga", "Tuvalu", "Vanuatu"]
 
     pos = [30, 320, 610, 900]
@@ -254,7 +270,6 @@ def respuesta(boton, op, cont):
 
 
 def Records():
-    print("")
     import webbrowser
     webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
     
@@ -263,7 +278,7 @@ def Salir():
     if respuesta == "yes":
         Ventana_Principal.destroy()
 
-# --- Ventana_ Menu Menu (Seleccion de Continente) ---
+# --- Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
     
@@ -274,7 +289,6 @@ def Abrir_Ventana_Menu():
     Ventana_Menu.title("4 PAISES 1 BANDERA")
     Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     Ventana_Menu.resizable(0,0)
-    #Ventana_Menu.configure(background="black")
     Ventana_Menu.geometry("1200x650")
     Ventana_Menu.geometry("+75+10")
     Ventana_Menu.config(cursor="hand2")
@@ -282,9 +296,6 @@ def Abrir_Ventana_Menu():
     imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
     lbl_imagen = Label(Ventana_Menu, image=imagen)
     lbl_imagen.place(x=0,y=0)
-
-    #Selec_Con = LabelFrame(Ventana_Menu, text="SELECCIONA UN CONTINENTE", width=1160, height=600, background="black", fg="white", font=("Verdana", 20))
-    #Selec_Con.place(x=20, y=20)
 
     lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="black", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
     lbl_seleccion.place(x=75, y=30)
@@ -306,31 +317,25 @@ def Abrir_Ventana_Menu():
     
 
     Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Volver.place(x=1070, y=50) #x=530
+    Btn_Volver.place(x=1070, y=50)
     
     Ventana_Menu.mainloop()
     #Ventana_Menu.state(newstate = "normal")
     #Ventana_Principal.state(newstate = "withdraw")
     
-# --- Ventana_Principal Principal (Inicio) ---
+# --- Principal (Inicio) ---
 
 Ventana_Principal = Tk()
 Ventana_Principal.title("4 PAISES 1 BANDERA")
 Ventana_Principal.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
 Ventana_Principal.resizable(0,0)
-Ventana_Principal.geometry("1200x650") #650
+Ventana_Principal.geometry("1200x650")
 Ventana_Principal.geometry("+75+10")
 Ventana_Principal.config(cursor="hand2")
 
 imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
 lbl_imagen = Label(Ventana_Principal, image=imagen)
 lbl_imagen.place(x=0,y=0)
-
-
-
-
-#Selec_Con = LabelFrame(Ventana_Principal, text="BIENVENIDO A", width=1054, height=175, background="black", fg="white", font=("Verdana", 20))
-#Selec_Con.place(x=70, y=10)
 
 lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="black", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
 lbl_Titulo.place(x=75, y=40)
