@@ -242,11 +242,7 @@ def Oceania():
 def respuesta(boton, op):
     if op == 1:
         boton.config(bg="green")
-    elif op == 2:
-        boton.config(bg="red")
-    elif op == 3:
-        boton.config(bg="red")
-    elif op == 4:
+    else:
         boton.config(bg="red")
 
 
