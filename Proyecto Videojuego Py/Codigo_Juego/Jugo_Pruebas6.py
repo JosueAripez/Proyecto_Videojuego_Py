@@ -37,19 +37,19 @@ def Africa():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]-1]
-    btn_Opcion1 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1))
+    btn_Opcion1 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 0))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]-1]
-    btn_Opcion2 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2))
+    btn_Opcion2 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 0))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]-1]
-    btn_Opcion3 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3))
+    btn_Opcion3 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 0))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]-1]
-    btn_Opcion4 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4))
+    btn_Opcion4 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 0))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
 
     ventana_Africa.mainloop()
@@ -83,19 +83,19 @@ def America():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]-1]
-    btn_Opcion1 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1))
+    btn_Opcion1 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 1))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]-1]
-    btn_Opcion2 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2))
+    btn_Opcion2 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 1))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]-1]
-    btn_Opcion3 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3))
+    btn_Opcion3 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 1))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]-1]
-    btn_Opcion4 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4))
+    btn_Opcion4 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 1))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_America.mainloop()
@@ -129,19 +129,19 @@ def Asia():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]-1]
-    btn_Opcion1 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1))
+    btn_Opcion1 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 2))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]-1]
-    btn_Opcion2 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2))
+    btn_Opcion2 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]-1]
-    btn_Opcion3 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3))
+    btn_Opcion3 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 2))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]-1]
-    btn_Opcion4 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4))
+    btn_Opcion4 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 2))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Asia.mainloop()
@@ -175,19 +175,19 @@ def Europa():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]-1]
-    btn_Opcion1 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1))
+    btn_Opcion1 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 3))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]-1]
-    btn_Opcion2 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2))
+    btn_Opcion2 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 3))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]-1]
-    btn_Opcion3 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3))
+    btn_Opcion3 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]-1]
-    btn_Opcion4 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4))
+    btn_Opcion4 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 3))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Europa.mainloop()
@@ -221,29 +221,36 @@ def Oceania():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]-1]
-    btn_Opcion1 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1))
+    btn_Opcion1 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 4))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]-1]
-    btn_Opcion2 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2))
+    btn_Opcion2 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 4))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]-1]
-    btn_Opcion3 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3))
+    btn_Opcion3 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 4))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]-1]
-    btn_Opcion4 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4))
+    btn_Opcion4 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Oceania.mainloop()
 
 
-def respuesta(boton, op):
+def respuesta(boton, op, cont):
+    continente = [Africa, America, Asia, Europa, Oceania]
+    #vidas = 3
     if op == 1:
         boton.config(bg="green")
+        continente[cont]()
     else:
         boton.config(bg="red")
+        #if vidas > 0:
+            #boton.config(bg="red")
+        #else:
+            #aqui tiene que imprimir la pantalla de cuando pierde
 
 
 def Records():
