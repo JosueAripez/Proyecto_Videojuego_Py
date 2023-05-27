@@ -13,18 +13,19 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
 
 def respuesta(boton, op, cont):
     continente = [Africa, America, Asia, Europa, Oceania]
 
     if op == 1:
+        Son_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
         #continente[cont]().withdraw()
         continente[cont]()
     else:
+        Son_Click.play()
         boton.config(bg="red")
 """     vidas = vidas -1
         if vidas > 0:
@@ -40,14 +41,16 @@ def Records():
     webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
     
 def Salir():
+    Son_Click.play()
     respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
     if respuesta == "yes":
+        Son_Click.play()
         Ventana_Principal.destroy()
         
 # --- Continentes Funciones ----
 
 def Africa():
-    
+    Son_Click.play()
     ventana_Africa= Toplevel()
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -97,7 +100,7 @@ def Africa():
 
 
 def America():
-    
+    Son_Click.play()
     ventana_America = Toplevel()
     ventana_America.title("4 PAISES 1 BANDERA")
     ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -146,7 +149,7 @@ def America():
 
 
 def Asia():
-    
+    Son_Click.play()
     ventana_Asia = Toplevel()
     ventana_Asia.title("4 PAISES 1 BANDERA")
     ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -195,7 +198,7 @@ def Asia():
 
 
 def Europa():
-    
+    Son_Click.play()
     ventana_Europa = Toplevel()
     ventana_Europa.title("4 PAISES 1 BANDERA")
     ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -244,7 +247,7 @@ def Europa():
 
 
 def Oceania():
-    
+    Son_Click.play()
     ventana_Oceania = Toplevel()
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -302,9 +305,11 @@ def Oceania():
 # --- Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
+    Son_Click.play()
     
     def Volver():
         Ventana_Menu.destroy()
+        Son_Click.play()
 
     
     Ventana_Principal.withdraw()
