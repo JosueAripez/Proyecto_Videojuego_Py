@@ -3,7 +3,6 @@
 # --- Importando --- 
 
 from tkinter import *
-from tkinter import ttk
 from tkinter import messagebox
 from tkinter import PhotoImage
 import random
@@ -15,13 +14,14 @@ import pygame
 pygame.mixer.init()
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
 
-def respuesta(boton, op, cont):
+def respuesta(boton, op, cont, Puntos):
     continente = [Africa, America, Asia, Europa, Oceania]
 
     if op == 1:
         Son_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
+        Puntos = Puntos + 1
         #continente[cont]().withdraw()
         continente[cont]()
     else:
@@ -56,10 +56,7 @@ def Africa():
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Africa.resizable(0,0)
     ventana_Africa.configure(background="white")
-    ventana_Africa.geometry("1200x650")
-    ventana_Africa.geometry("+75+10")
-    ventana_Africa.config(cursor="hand2")
-
+    ventana_Africa.geometry("1200x650+75+10")
 
     lbl_Titulo = Label(ventana_Africa, text="AFRICA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
@@ -81,19 +78,19 @@ def Africa():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 0))
+    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 0))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 0))
+    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 0))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 0))
+    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 0))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Africa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 0))
+    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 0))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
 
     ventana_Africa.mainloop()
@@ -106,9 +103,7 @@ def America():
     ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_America.resizable(0,0)
     ventana_America.configure(background="white")
-    ventana_America.geometry("1200x650")
-    ventana_America.geometry("+75+10")
-    ventana_America.config(cursor="hand2")
+    ventana_America.geometry("1200x650+75+10")
 
     lbl_Titulo = Label(ventana_America, text="AMERICA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
@@ -130,19 +125,19 @@ def America():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 1))
+    btn_Opcion1 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 1))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 1))
+    btn_Opcion2 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 1))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 1))
+    btn_Opcion3 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 1))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_America, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 1))
+    btn_Opcion4 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 1))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_America.mainloop()
@@ -155,10 +150,7 @@ def Asia():
     ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Asia.resizable(0,0)
     ventana_Asia.configure(background="white")
-    ventana_Asia.geometry("1200x650")
-    ventana_Asia.geometry("+75+10")
-    ventana_Asia.config(cursor="hand2")
-
+    ventana_Asia.geometry("1200x650+75+10")
     lbl_Titulo = Label(ventana_Asia, text="ASIA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
 
@@ -179,19 +171,19 @@ def Asia():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 2))
+    btn_Opcion1 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 2))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 2))
+    btn_Opcion2 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 2))
+    btn_Opcion3 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 2))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Asia, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 2))
+    btn_Opcion4 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 2))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Asia.mainloop()
@@ -204,9 +196,7 @@ def Europa():
     ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Europa.resizable(0,0)
     ventana_Europa.configure(background="white")
-    ventana_Europa.geometry("1200x650")
-    ventana_Europa.geometry("+75+10")
-    ventana_Europa.config(cursor="hand2")
+    ventana_Europa.geometry("1200x650+75+10")
 
     lbl_Titulo = Label(ventana_Europa, text="EUROPA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
@@ -228,19 +218,19 @@ def Europa():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 3))
+    btn_Opcion1 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 3))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 3))
+    btn_Opcion2 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 3))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 3))
+    btn_Opcion3 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Europa, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 3))
+    btn_Opcion4 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 3))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Europa.mainloop()
@@ -252,10 +242,12 @@ def Oceania():
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Oceania.resizable(0,0)
-    ventana_Oceania.configure(background="white")
-    ventana_Oceania.geometry("1200x650")
-    ventana_Oceania.geometry("+75+10")
-    ventana_Oceania.config(cursor="hand2")
+    #ventana_Oceania.configure(background="white")
+    ventana_Oceania.geometry("1200x650+75+10")
+    
+    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\MapaMundi.png")
+    lbl_imagen = Label(ventana_Oceania, image=imagen)
+    lbl_imagen.place(x=0,y=0)
 
     lbl_Titulo = Label(ventana_Oceania, text="OCEANIA:", bg="white")
     lbl_Titulo.place(x=10, y=10)
@@ -273,8 +265,8 @@ def Oceania():
     vidas = 3
     lbl_vidas = Label(ventana_Oceania, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
     lbl_vidas.place(x=900, y=10)
-
-    lbl_puntaje = Label(ventana_Oceania, text="Puntaje: ", bg="white", font=("Arial Black", 24))
+    Puntos = 0
+    lbl_puntaje = Label(ventana_Oceania, text=f"Puntaje: {Puntos}", bg="white", font=("Arial Black", 24))
     lbl_puntaje.place(x=900, y=60)
 
     # --- Texto de los Botones Aleatorio ---
@@ -285,19 +277,19 @@ def Oceania():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 4))
+    btn_Opcion1 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 4))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 4))
+    btn_Opcion2 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 4))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 4))
+    btn_Opcion3 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 4))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Oceania, text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 4))
+    btn_Opcion4 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Oceania.mainloop()
@@ -311,15 +303,11 @@ def Abrir_Ventana_Menu():
         Ventana_Menu.destroy()
         Son_Click.play()
 
-    
-    Ventana_Principal.withdraw()
     Ventana_Menu = Toplevel()
     Ventana_Menu.title("4 PAISES 1 BANDERA")
     Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     Ventana_Menu.resizable(0,0)
-    Ventana_Menu.geometry("1200x650")
-    Ventana_Menu.geometry("+75+10")
-    Ventana_Menu.config(cursor="hand2")
+    Ventana_Menu.geometry("1200x650+75+10")
 
     imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
     lbl_imagen = Label(Ventana_Menu, image=imagen)
@@ -328,23 +316,22 @@ def Abrir_Ventana_Menu():
     lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="black", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
     lbl_seleccion.place(x=75, y=30)
 
-    Btn_Africa = Button(Ventana_Menu, text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
+    Btn_Africa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
     Btn_Africa.place(x=42, y=110)
     
-    Btn_America = Button(Ventana_Menu, text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=America)
+    Btn_America = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=America)
     Btn_America.place(x=42, y=210)
     
-    Btn_Asia = Button(Ventana_Menu, text="ASIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Asia)
+    Btn_Asia = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="ASIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Asia)
     Btn_Asia.place(x=42, y=310)
     
-    Btn_Europa = Button(Ventana_Menu, text="EUROPA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Europa)
+    Btn_Europa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="EUROPA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Europa)
     Btn_Europa.place(x=42, y=410)
     
-    Btn_Oceania = Button(Ventana_Menu, text="OCEANIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Oceania)
+    Btn_Oceania = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="OCEANIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Oceania)
     Btn_Oceania.place(x=42, y=510)
-    
 
-    Btn_Volver = Button(Ventana_Menu, text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
     Btn_Volver.place(x=1070, y=50)
     
     Ventana_Menu.mainloop()
@@ -355,9 +342,7 @@ Ventana_Principal = Tk()
 Ventana_Principal.title("4 PAISES 1 BANDERA")
 Ventana_Principal.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
 Ventana_Principal.resizable(0,0)
-Ventana_Principal.geometry("1200x650")
-Ventana_Principal.geometry("+75+10")
-Ventana_Principal.config(cursor="hand2")
+Ventana_Principal.geometry("1200x650+75+10")
 
 imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
 lbl_imagen = Label(Ventana_Principal, image=imagen)
@@ -366,13 +351,13 @@ lbl_imagen.place(x=0,y=0)
 lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="black", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
 lbl_Titulo.place(x=75, y=40)
 
-Btn_Comenazar = Button(Ventana_Principal, text="COMENZAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
+Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
 Btn_Comenazar.place(x=450, y=300)
 
-Btn_Record = Button(Ventana_Principal, text="RECORDS", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Records)
+Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Records)
 Btn_Record.place(x=450, y=380)
 
-Btn_Salir = Button(Ventana_Principal, text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
+Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
 Btn_Salir.place(x=450, y=460)
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
