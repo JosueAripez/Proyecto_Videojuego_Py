@@ -14,14 +14,13 @@ import pygame
 pygame.mixer.init()
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
 
-def respuesta(boton, op, cont, Puntos):
+def respuesta(boton, op, cont):
     continente = [Africa, America, Asia, Europa, Oceania]
 
     if op == 1:
         Son_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
-        Puntos = Puntos + 1
         #continente[cont]().withdraw()
         continente[cont]()
     else:
