@@ -258,7 +258,7 @@ def Oceania():
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Oceania, image=foto)
-    lbl_Bandera.place(x=480, y=100)
+    lbl_Bandera.place(x=440, y=100)
     #lbl_Bandera.zoom(2)
 
     vidas = 3
