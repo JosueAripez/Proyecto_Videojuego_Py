@@ -269,7 +269,7 @@ def respuesta(boton, op, cont):
     #vidas = 3
     if op == 1:
         boton.config(bg="green")
-        time.sleep(0.2)
+        #time.sleep(0.2)
         #continente[cont]().withdraw()
         continente[cont]()
     else:
@@ -298,7 +298,7 @@ def Abrir_Ventana_Menu():
     def Volver():
         Ventana_Menu.destroy()
     
-    Ventana_Principal.withdraw()
+    #Ventana_Principal.withdraw()
     Ventana_Menu = Toplevel()
     Ventana_Menu.title("4 PAISES 1 BANDERA")
     Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
