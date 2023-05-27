@@ -224,17 +224,19 @@ def Oceania():
     # --- Imagenes Aleatorias ---
     
     num = random.sample(range(1,14),4)
-    vidas = 3
-
+    
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Oceania, image=foto)
     lbl_Bandera.place(x=480, y=100)
 
-    
 
+    vidas = 3
     lbl_vidas = Label(ventana_Oceania, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
     lbl_vidas.place(x=900, y=10)
+
+    lbl_puntaje = Label(ventana_Oceania, text="Puntaje: ", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
 
     # --- Texto de los Botones Aleatorio ---
     
@@ -333,6 +335,8 @@ def Abrir_Ventana_Menu():
     #Ventana_Menu.state(newstate = "normal")
     #Ventana_Principal.state(newstate = "withdraw")
     
+
+
 # --- Principal (Inicio) ---
 
 Ventana_Principal = Tk()
