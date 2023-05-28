@@ -351,14 +351,14 @@ lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="black", bg=
 lbl_Titulo.place(x=75, y=40)
 
 Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
-Btn_Comenazar.place(x=450, y=300)
+Btn_Comenazar.place(x=465, y=300)
 
 #Img_P = PhotoImage(file="Proyecto Videojuego Py\imagenes\Botones\Puntaje1.png")
 Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Records)
-Btn_Record.place(x=450, y=380)
+Btn_Record.place(x=465, y=380)
 
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
-Btn_Salir.place(x=450, y=460)
+Btn_Salir.place(x=465, y=460)
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)
