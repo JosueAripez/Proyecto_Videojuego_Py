@@ -337,6 +337,13 @@ def Abrir_Ventana_Menu():
     
     Ventana_Menu.mainloop()
     
+def ajuste():
+    W_ajustes = Toplevel()
+    W_ajustes.title("AJUSTES")
+    W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    W_ajustes.resizable(0,0)
+    W_ajustes.geometry("700x400+350+170")
+    
 # --- Principal (Inicio) ---
 
 Ventana_Principal = Tk()
@@ -361,6 +368,12 @@ Btn_Record.place(x=465, y=380)
 
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
 Btn_Salir.place(x=465, y=460)
+
+
+ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
+Btn_ajustes = Button(Ventana_Principal, image=ajuste_img, cursor="hand2", command=ajuste)
+Btn_ajustes.place(x=0, y=0)
+
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)

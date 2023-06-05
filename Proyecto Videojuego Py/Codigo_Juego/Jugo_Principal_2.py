@@ -54,6 +54,8 @@ def verificar_respuesta(respuesta):
     
     if vidas > 0:
         jugar()
+    else:
+        guardar_puntaje()
 
 def jugar():
     global opciones
@@ -72,12 +74,29 @@ def guardar_puntaje():
         
     root.destroy()
 
+def cargar_puntajes():
+    puntajes = []
+    
+    # Cargar puntajes desde el archivo de texto
+    with open("puntajes.txt", "r") as archivo:
+        for linea in archivo:
+            puntajes.append(linea.strip())
+    
+    # Crear una nueva ventana para mostrar los puntajes
+    ventana_puntajes = tk.Toplevel(root)
+    ventana_puntajes.title("Puntajes")
+    
+    # Crear una etiqueta para cada puntaje
+    for puntaje in puntajes:
+        label_puntaje = tk.Label(ventana_puntajes, text=puntaje)
+        label_puntaje.pack()
+
 # Crear la ventana principal
 root = tk.Tk()
 
 # Configurar la ventana principal
 root.title("Juego de Banderas")
-root.geometry("400x300")
+root.geometry("400x400")
 
 # Etiqueta para mostrar la imagen de la bandera
 label_imagen = tk.Label(root)
@@ -110,6 +129,10 @@ nombre_entry.pack(pady=5)
 # Botón para guardar el puntaje
 guardar_button = tk.Button(root, text="Guardar puntaje", command=guardar_puntaje)
 guardar_button.pack(pady=10)
+
+# Botón para cargar los puntajes
+cargar_button = tk.Button(root, text="Cargar puntajes", command=cargar_puntajes)
+cargar_button.pack(pady=5)
 
 # Iniciar el juego
 jugar()
