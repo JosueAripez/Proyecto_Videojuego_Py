@@ -344,6 +344,8 @@ def ajuste():
     W_ajustes.resizable(0,0)
     W_ajustes.geometry("700x400+350+170")
     
+    
+    
 # --- Principal (Inicio) ---
 
 Ventana_Principal = Tk()
