@@ -12,7 +12,7 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
+Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
 
 def respuesta(boton, op, cont):
     continente = [Africa, America, Asia, Europa, Oceania]
