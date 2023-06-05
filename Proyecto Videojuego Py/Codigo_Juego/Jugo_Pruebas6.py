@@ -26,6 +26,7 @@ def respuesta(boton, op, cont):
     else:
         Son_Click.play()
         boton.config(bg="red")
+        
 """     vidas = vidas -1
         if vidas > 0:
             boton.config(bg="red")
@@ -69,6 +70,14 @@ def Africa():
     lbl_Bandera = Label(ventana_Africa, image=foto)
     lbl_Bandera.place(x=480, y=100)
 
+    # --- Contadores ---
+    vidas = 3
+    lbl_vidas = Label(ventana_Africa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    Puntos = 0
+    lbl_puntaje = Label(ventana_Africa, text=f"Puntaje: {Puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
+
     # --- Texto de los botones aleatortios ---
     
     paises = ["Relleno", "Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso", "Burundi", "Cabo Verde", "Camerun", "Chad", "Comoras", "Costa de Marfil", "Egipto", "Eritrea", "Etiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea Bisau", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia", "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio", "Mauritania", "Mozambique", "Naminia", "Niger", "Nigeria", "Republica Centroafricana", "Rpublica del Congo", "Republica Democratica del combo", "Ruanda", "Sahara", "Santo Tome y Principe", "Senegal", "Seychelles", "Sierra Leona", "Somalia", "Somalilandia", "Sauzilandia", "Sudafrica", "Sudan", "Sudan del Sur", "Tanzania", "Togo", "Tunez", "Uganda", "Yibuti", "Zambia", "Zimbaue"]
@@ -77,7 +86,7 @@ def Africa():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 0))
+    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 0, ))
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
@@ -115,6 +124,14 @@ def America():
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_America, image=foto)
     lbl_Bandera.place(x=480, y=100)
+
+    # --- Contadores ---
+    vidas = 3
+    lbl_vidas = Label(ventana_America, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    Puntos = 0
+    lbl_puntaje = Label(ventana_America, text=f"Puntaje: {Puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
 
     # --- Texto de los Botones Aleatorio ---
     
@@ -162,6 +179,14 @@ def Asia():
     lbl_Bandera = Label(ventana_Asia, image=foto)
     lbl_Bandera.place(x=480, y=100)
 
+    # --- Contadores ---
+    vidas = 3
+    lbl_vidas = Label(ventana_Asia, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    Puntos = 0
+    lbl_puntaje = Label(ventana_Asia, text=f"Puntaje: {Puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
+
     # --- Texto de los Botones Aleatorio ---
     
     paises = ["Relleno", "Afganistan", "Arabia Saudita", "Banglades", "Barein", "Birmania", "Brunei", "Butan", "Camboya", "Catar", "China", "Corea del Norte", "Corea del Sur", "Emiratos Arabes Unidos", "Filipinas", "India", "Indonesia", "Irak", "Iran", "Israel", "Japon", "Jordania", "Kazajistan", "Kuwait", "Laos", "Libano", "Malasia", "Maldivas", "Mongolia", "Nepal", "Oman", "Pakistan", "Palestina", "Singapur", "Siria", "Sri Lanka", "Tailandia", "Taiwan", "Tayikistan", "Timor Oriental", "Turkmenistan", "Turquia", "Uzbekistain", "Vietnam", "Yemen"]
@@ -208,6 +233,14 @@ def Europa():
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Europa, image=foto)
     lbl_Bandera.place(x=480, y=100)
+
+    # --- Contadores ---
+    vidas = 3
+    lbl_vidas = Label(ventana_Europa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    Puntos = 0
+    lbl_puntaje = Label(ventana_Europa, text=f"Puntaje: {Puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
 
     # --- Texto de los Botones Aleatorio ---
     
@@ -261,6 +294,7 @@ def Oceania():
     lbl_Bandera.place(x=440, y=100)
     #lbl_Bandera.zoom(2)
 
+    # --- Contadores ---
     vidas = 3
     lbl_vidas = Label(ventana_Oceania, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
     lbl_vidas.place(x=900, y=10)
