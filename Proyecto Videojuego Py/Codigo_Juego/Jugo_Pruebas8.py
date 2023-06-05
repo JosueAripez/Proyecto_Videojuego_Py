@@ -1,5 +1,3 @@
-# El MAMALON PERRON CHINGON
-
 # --- Importando --- 
 
 from tkinter import *
@@ -12,8 +10,6 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
-pygame.mixer.music.play(-1)
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
 
 def respuesta(boton, op, cont):
