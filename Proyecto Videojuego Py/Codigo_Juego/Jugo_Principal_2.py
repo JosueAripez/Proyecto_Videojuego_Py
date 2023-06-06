@@ -1,141 +1,688 @@
-import tkinter as tk
+# El MAMALON PERRON CHINGON COPIA
+
+# --- Importando --- 
+
+from tkinter import *
+from tkinter import messagebox
+from tkinter import PhotoImage
 import random
+import time 
+import pygame
 
-# Diccionario con las banderas y sus respectivos nombres
-banderas = {
-    "bandera1.png": "Pais1",
-    "bandera2.png": "Pais2",
-    "bandera3.png": "Pais3",
-    "bandera4.png": "Pais4"
-}
+# --- Funciones ---
 
-# Puntaje inicial del jugador
-puntaje = 0
+pygame.mixer.init()
+pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
+pygame.mixer.music.play(-1)
+Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
+Crt_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Estrellas.mp3")
+Inct_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\error.mp3")
 
-# Vidas del jugador
-vidas = 3
+def ajuste():
+    Son_Click.play()
+    W_ajustes = Toplevel()
+    W_ajustes.title("AJUSTES")
+    W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    W_ajustes.resizable(0,0)
+    W_ajustes.geometry("700x400+350+170")
+    W_ajustes.mainloop()
 
-def mostrar_banderas():
-    # Obtener una lista de las banderas
-    lista_banderas = list(banderas.keys())
-    # Barajar las banderas para mostrarlas en orden aleatorio
-    random.shuffle(lista_banderas)
-    # Mostrar las banderas y generar las opciones
-    opciones = []
-    for i in range(4):
-        opcion = lista_banderas[i]
-        opciones.append(opcion)
-        # Cargar la imagen de la bandera
-        imagen = tk.PhotoImage(file=opcion)
-        # Mostrar la imagen en una etiqueta
-        label_imagen.configure(image=imagen)
-        label_imagen.image = imagen
-        # Actualizar las opciones
-        botones[i].configure(text=opcion)
-    return opciones
+def respuesta(boton, op, cont):
+    continente = [Africa, America, Asia, Europa, Oceania]
 
-def verificar_respuesta(respuesta):
-    global puntaje, vidas
-    
-    respuesta_bandera = respuesta.widget["text"]
-    nombre_pais = banderas[respuesta_bandera]
-    
-    if respuesta_bandera in opciones:
-        puntaje += 1
-        info_label.configure(text="¡Respuesta correcta!", fg="green")
+    if op == 1:
+        Crt_Click.play()
+        boton.config(bg="green")
+        time.sleep(0.2)
+        #ventana.after(1000)
+        #continente[cont]().withdraw()
+        continente[cont]()
+        
     else:
+        Inct_Click.play()
+        boton.config(bg="red")
+        
+"""     vidas = vidas -1
+        if vidas > 0:
+            boton.config(bg="red")
+        else:
+            print("")
+            #aqui tiene que imprimir la pantalla de cuando pierde
+"""
+
+def Records():
+    Son_Click.play()
+    import webbrowser
+    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
+    
+def Salir():
+    Son_Click.play()
+    respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
+    if respuesta == "yes":
+        Son_Click.play()
+        Ventana_Principal.destroy()
+        
+# --- Continentes Funciones ----
+
+def Africa():
+    Son_Click.play()
+    ventana_Africa= Toplevel()
+    ventana_Africa.title("4 PAISES 1 BANDERA")
+    ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_Africa.resizable(0,0)
+    ventana_Africa.configure(background="white")
+    ventana_Africa.geometry("1200x650+75+10")
+
+    lbl_Titulo = Label(ventana_Africa, text="AFRICA:", background="white", fg="black")
+    lbl_Titulo.place(x=10, y=10)
+
+    # --- Contadores ---
+    vidas = 3
+    puntos = 0
+    lbl_vidas = Label(ventana_Africa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    
+    lbl_puntaje = Label(ventana_Africa, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
+
+    def contador_puntos():
+        nonlocal puntos
+        puntos += 1
+        lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        btn_Opcion1.config(bg="green")
+        #time.sleep(0.2)
+
+        # --- configurar bandera ---
+        num = random.sample(range(1,56),4)
+        bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
+        foto=PhotoImage(file=bandera)
+        lbl_Bandera.config(image=foto)
+        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.image = foto
+
+        # --- configurar botones ---
+        paises = ["Relleno", "Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso", "Burundi", "Cabo Verde", "Camerun", "Chad", "Comoras", "Costa de Marfil", "Egipto", "Eritrea", "Etiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea Bisau", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia", "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio", "Mauritania", "Mozambique", "Naminia", "Niger", "Nigeria", "Republica Centroafricana", "Rpublica del Congo", "Republica Democratica del combo", "Ruanda", "Sahara", "Santo Tome y Principe", "Senegal", "Seychelles", "Sierra Leona", "Somalia", "Somalilandia", "Sauzilandia", "Sudafrica", "Sudan", "Sudan del Sur", "Tanzania", "Togo", "Tunez", "Uganda", "Yibuti", "Zambia", "Zimbaue"]
+        pos = [30, 320, 610, 900]
+        posx = random.sample(range(0,4), 4)
+        
+        texto = paises[num[0]]
+        btn_Opcion1.config(bg="white", text=texto)
+        btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+        texto = paises[num[1]]
+        btn_Opcion2.config(bg="white", text=texto)
+        btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+        texto = paises[num[2]]
+        btn_Opcion3.config(bg="white", text=texto)
+        btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+        texto = paises[num[3]]
+        btn_Opcion4.config(bg="white", text=texto)
+        btn_Opcion4.place(x=pos[posx[3]], y=450)
+
+
+    def contador_vidas(op):
+        nonlocal vidas
         vidas -= 1
-        info_label.configure(text="Respuesta incorrecta. Pierdes una vida.", fg="red")
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            btn_Opcion3.config(bg="red")
+        else:
+            btn_Opcion4.config(bg="red")
         
-    del banderas[respuesta_bandera]
-    
-    puntaje_label.configure(text=f"Puntaje: {puntaje}")
-    vidas_label.configure(text=f"Vidas restantes: {vidas}")
-    
-    if vidas > 0:
-        jugar()
-    else:
-        guardar_puntaje()
+        if vidas == 0:
+            #aqui va ventana de cuando pierde
+            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
 
-def jugar():
-    global opciones
-    
-    opciones = mostrar_banderas()
-    
-    for boton in botones:
-        boton.configure(state=tk.NORMAL)
 
-def guardar_puntaje():
-    nombre_jugador = nombre_entry.get()
+    # --- Imagenes Aleatorias ---
     
-    # Guardar puntaje en un archivo de texto
-    with open("puntajes.txt", "a") as archivo:
-        archivo.write(f"{nombre_jugador}: {puntaje}\n")
+    num = random.sample(range(1,56),4)
+
+    bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
+    foto=PhotoImage(file=bandera)
+    lbl_Bandera = Label(ventana_Africa, image=foto)
+    lbl_Bandera.place(x=480, y=100)
+
+
+    # --- Texto de los botones aleatortios ---
+    
+    paises = ["Relleno", "Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso", "Burundi", "Cabo Verde", "Camerun", "Chad", "Comoras", "Costa de Marfil", "Egipto", "Eritrea", "Etiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea Bisau", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia", "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio", "Mauritania", "Mozambique", "Naminia", "Niger", "Nigeria", "Republica Centroafricana", "Rpublica del Congo", "Republica Democratica del combo", "Ruanda", "Sahara", "Santo Tome y Principe", "Senegal", "Seychelles", "Sierra Leona", "Somalia", "Somalilandia", "Sauzilandia", "Sudafrica", "Sudan", "Sudan del Sur", "Tanzania", "Togo", "Tunez", "Uganda", "Yibuti", "Zambia", "Zimbaue"]
+    
+    pos = [30, 320, 610, 900]
+    posx = random.sample(range(0,4), 4)
+
+    texto = paises[num[0]]
+    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+    texto = paises[num[1]]
+    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))#lambda: respuesta(btn_Opcion2, 2, 0)
+    btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+    texto = paises[num[2]]
+    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(3))#lambda: respuesta(btn_Opcion3, 3, 0)
+    btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+    texto = paises[num[3]]
+    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))#lambda: respuesta(btn_Opcion4, 4, 0)
+    btn_Opcion4.place(x=pos[posx[3]], y=450)
+
+    ventana_Africa.mainloop()
+
+
+def America():
+    Son_Click.play()
+    ventana_America = Toplevel()
+    ventana_America.title("4 PAISES 1 BANDERA")
+    ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_America.resizable(0,0)
+    ventana_America.configure(background="white")
+    ventana_America.geometry("1200x650+75+10")
+
+    lbl_Titulo = Label(ventana_America, text="AMERICA:", background="white", fg="black")
+    lbl_Titulo.place(x=10, y=10)
+
+    # --- Contadores ---
+    vidas = 3
+    puntos = 0
+    lbl_vidas = Label(ventana_America, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    
+    lbl_puntaje = Label(ventana_America, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
+
+    def contador_puntos():
+        nonlocal puntos
+        puntos += 1
+        lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        btn_Opcion1.config(bg="green")
+        #time.sleep(0.2)
+
+        # --- configurar bandera ---
+        num = random.sample(range(1,36),4)
+        bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\America\\band{num[0]}.png"
+        foto=PhotoImage(file=bandera)
+        lbl_Bandera.config(image=foto)
+        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.image = foto
+
+        # --- configurar botones ---
+        paises = ["Relleno", "Antigua y Barbuba", "Argentina", "Bahamas", "Barbados", "Belice", "Bolivia", "Brasil", "Canada", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominica", "Ecuador", "EEUU", "El Salvador", "Granada", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Puerto Rico", "Republica Dominicana", "San Cristobal y Nieves", "San Vicente y las Granadinas", "Sanata Lucia", "Surinam", "Trinidad y Tobago", "Uruguay", "Venezuela"]
+        pos = [30, 320, 610, 900]
+        posx = random.sample(range(0,4), 4)
         
-    root.destroy()
+        texto = paises[num[0]]
+        btn_Opcion1.config(bg="white", text=texto)
+        btn_Opcion1.place(x=pos[posx[0]], y=450)
 
-def cargar_puntajes():
-    puntajes = []
+        texto = paises[num[1]]
+        btn_Opcion2.config(bg="white", text=texto)
+        btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+        texto = paises[num[2]]
+        btn_Opcion3.config(bg="white", text=texto)
+        btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+        texto = paises[num[3]]
+        btn_Opcion4.config(bg="white", text=texto)
+        btn_Opcion4.place(x=pos[posx[3]], y=450)
+
+
+    def contador_vidas(op):
+        nonlocal vidas
+        vidas -= 1
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            btn_Opcion3.config(bg="red")
+        else:
+            btn_Opcion4.config(bg="red")
+        
+        if vidas == 0:
+            #aqui va ventana de cuando pierde
+            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
+
+    # --- Imagenes Aleatorias ---
     
-    # Cargar puntajes desde el archivo de texto
-    with open("puntajes.txt", "r") as archivo:
-        for linea in archivo:
-            puntajes.append(linea.strip())
+    num = random.sample(range(1,36),4)
+
+    bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\America\\band{num[0]}.png"
+    foto=PhotoImage(file=bandera)
+    lbl_Bandera = Label(ventana_America, image=foto)
+    lbl_Bandera.place(x=480, y=100)
+
+    # --- Texto de los Botones Aleatorio ---
     
-    # Crear una nueva ventana para mostrar los puntajes
-    ventana_puntajes = tk.Toplevel(root)
-    ventana_puntajes.title("Puntajes")
+    paises = ["Relleno", "Antigua y Barbuba", "Argentina", "Bahamas", "Barbados", "Belice", "Bolivia", "Brasil", "Canada", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominica", "Ecuador", "EEUU", "El Salvador", "Granada", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Puerto Rico", "Republica Dominicana", "San Cristobal y Nieves", "San Vicente y las Granadinas", "Sanata Lucia", "Surinam", "Trinidad y Tobago", "Uruguay", "Venezuela"]
+
+    pos = [30, 320, 610, 900]
+    posx = random.sample(range(0,4), 4)
+
+    texto = paises[num[0]]
+    btn_Opcion1 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+    texto = paises[num[1]]
+    btn_Opcion2 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+    texto = paises[num[2]]
+    btn_Opcion3 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+    texto = paises[num[3]]
+    btn_Opcion4 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4.place(x=pos[posx[3]], y=450)
     
-    # Crear una etiqueta para cada puntaje
-    for puntaje in puntajes:
-        label_puntaje = tk.Label(ventana_puntajes, text=puntaje)
-        label_puntaje.pack()
+    ventana_America.mainloop()
 
-# Crear la ventana principal
-root = tk.Tk()
 
-# Configurar la ventana principal
-root.title("Juego de Banderas")
-root.geometry("400x400")
+def Asia():
+    Son_Click.play()
+    ventana_Asia = Toplevel()
+    ventana_Asia.title("4 PAISES 1 BANDERA")
+    ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_Asia.resizable(0,0)
+    ventana_Asia.configure(background="white")
+    ventana_Asia.geometry("1200x650+75+10")
+    lbl_Titulo = Label(ventana_Asia, text="ASIA:", background="white", fg="black")
+    lbl_Titulo.place(x=10, y=10)
 
-# Etiqueta para mostrar la imagen de la bandera
-label_imagen = tk.Label(root)
-label_imagen.pack(pady=10)
+    # --- Contadores ---
+    vidas = 3
+    puntos = 0
+    lbl_vidas = Label(ventana_Asia, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    
+    lbl_puntaje = Label(ventana_Asia, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
 
-# Botones para las opciones
-botones = []
-for _ in range(4):
-    boton = tk.Button(root, text="", width=20, state=tk.DISABLED)
-    boton.pack(pady=5)
-    boton.configure(command=verificar_respuesta)
-    botones.append(boton)
+    def contador_puntos():
+        nonlocal puntos
+        puntos += 1
+        lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        btn_Opcion1.config(bg="green")
+        #time.sleep(0.2)
 
-# Etiquetas para el puntaje y las vidas
-puntaje_label = tk.Label(root, text="Puntaje: 0")
-puntaje_label.pack()
-vidas_label = tk.Label(root, text="Vidas restantes: 3")
-vidas_label.pack()
+        # --- configurar bandera ---
+        num = random.sample(range(1,44),4)
+        bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Asia\\band{num[0]}.png"
+        foto=PhotoImage(file=bandera)
+        lbl_Bandera.config(image=foto)
+        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.image = foto
 
-# Etiqueta para mostrar información al jugador
-info_label = tk.Label(root, text="")
-info_label.pack(pady=10)
+        # --- configurar botones ---
+        paises = ["Relleno", "Afganistan", "Arabia Saudita", "Banglades", "Barein", "Birmania", "Brunei", "Butan", "Camboya", "Catar", "China", "Corea del Norte", "Corea del Sur", "Emiratos Arabes Unidos", "Filipinas", "India", "Indonesia", "Irak", "Iran", "Israel", "Japon", "Jordania", "Kazajistan", "Kuwait", "Laos", "Libano", "Malasia", "Maldivas", "Mongolia", "Nepal", "Oman", "Pakistan", "Palestina", "Singapur", "Siria", "Sri Lanka", "Tailandia", "Taiwan", "Tayikistan", "Timor Oriental", "Turkmenistan", "Turquia", "Uzbekistain", "Vietnam", "Yemen"]
+        pos = [30, 320, 610, 900]
+        posx = random.sample(range(0,4), 4)
+        
+        texto = paises[num[0]]
+        btn_Opcion1.config(bg="white", text=texto)
+        btn_Opcion1.place(x=pos[posx[0]], y=450)
 
-# Etiqueta y entrada para el nombre del jugador
-nombre_label = tk.Label(root, text="Ingresa tu nombre:")
-nombre_label.pack()
-nombre_entry = tk.Entry(root)
-nombre_entry.pack(pady=5)
+        texto = paises[num[1]]
+        btn_Opcion2.config(bg="white", text=texto)
+        btn_Opcion2.place(x=pos[posx[1]], y=450)
 
-# Botón para guardar el puntaje
-guardar_button = tk.Button(root, text="Guardar puntaje", command=guardar_puntaje)
-guardar_button.pack(pady=10)
+        texto = paises[num[2]]
+        btn_Opcion3.config(bg="white", text=texto)
+        btn_Opcion3.place(x=pos[posx[2]], y=450)
 
-# Botón para cargar los puntajes
-cargar_button = tk.Button(root, text="Cargar puntajes", command=cargar_puntajes)
-cargar_button.pack(pady=5)
+        texto = paises[num[3]]
+        btn_Opcion4.config(bg="white", text=texto)
+        btn_Opcion4.place(x=pos[posx[3]], y=450)
 
-# Iniciar el juego
-jugar()
 
-# Iniciar el bucle de la interfaz gráfica
-root.mainloop()
+    def contador_vidas(op):
+        nonlocal vidas
+        vidas -= 1
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            btn_Opcion3.config(bg="red")
+        else:
+            btn_Opcion4.config(bg="red")
+        
+        if vidas == 0:
+            #aqui va ventana de cuando pierde
+            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
+
+    # --- Imagenes Aleatorias ---
+    
+    num = random.sample(range(1,44),4)
+
+    bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Asia\\band{num[0]}.png"
+    foto=PhotoImage(file=bandera)
+    lbl_Bandera = Label(ventana_Asia, image=foto)
+    lbl_Bandera.place(x=480, y=100)
+
+    # --- Texto de los Botones Aleatorio ---
+    
+    paises = ["Relleno", "Afganistan", "Arabia Saudita", "Banglades", "Barein", "Birmania", "Brunei", "Butan", "Camboya", "Catar", "China", "Corea del Norte", "Corea del Sur", "Emiratos Arabes Unidos", "Filipinas", "India", "Indonesia", "Irak", "Iran", "Israel", "Japon", "Jordania", "Kazajistan", "Kuwait", "Laos", "Libano", "Malasia", "Maldivas", "Mongolia", "Nepal", "Oman", "Pakistan", "Palestina", "Singapur", "Siria", "Sri Lanka", "Tailandia", "Taiwan", "Tayikistan", "Timor Oriental", "Turkmenistan", "Turquia", "Uzbekistain", "Vietnam", "Yemen"]
+
+    pos = [30, 320, 610, 900]
+    posx = random.sample(range(0,4), 4)
+
+    texto = paises[num[0]]
+    btn_Opcion1 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+    texto = paises[num[1]]
+    btn_Opcion2 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+    texto = paises[num[2]]
+    btn_Opcion3 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+    texto = paises[num[3]]
+    btn_Opcion4 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4.place(x=pos[posx[3]], y=450)
+    
+    ventana_Asia.mainloop()
+
+
+def Europa():
+    Son_Click.play()
+    ventana_Europa = Toplevel()
+    ventana_Europa.title("4 PAISES 1 BANDERA")
+    ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_Europa.resizable(0,0)
+    ventana_Europa.configure(background="white")
+    ventana_Europa.geometry("1200x650+75+10")
+
+    lbl_Titulo = Label(ventana_Europa, text="EUROPA:", background="white", fg="black")
+    lbl_Titulo.place(x=10, y=10)
+
+    # --- Contadores ---
+    vidas = 3
+    puntos = 0
+    lbl_vidas = Label(ventana_Europa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    
+    lbl_puntaje = Label(ventana_Europa, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
+
+    def contador_puntos():
+        nonlocal puntos
+        puntos += 1
+        lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        btn_Opcion1.config(bg="green")
+        #time.sleep(0.2)
+
+        # --- configurar bandera ---
+        num = random.sample(range(1,48),4)
+        bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Europa\\band{num[0]}.png"
+        foto=PhotoImage(file=bandera)
+        lbl_Bandera.config(image=foto)
+        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.image = foto
+
+        # --- configurar botones ---
+        paises = ["Relleno", "Albania", "Alemania", "Andorra", "Armenia", "Austria", "Azerbaiyan", "Belgica", "Bielorrusia", "Bosnia y Herzegovina", "Bulgaria", "Chipre", "Croacia", "Dinamarca", "Eslovaquia", "Eslovenia", "España", "Estonia", "Filandia", "Francia", "Georgia", "Grecia", "Hungria", "Irlanda", "Islandia", "Italia", "Letonia", "Liechtenstein", "Litunia", "Luxemburgo", "Macedonia del Norte", "Malta", "Moldavia", "Monaco", "Montenegro", "Noruega", "Paises Bajos", "Polonia", "Portugal", "Reino Unido", "Republica Checa", "Rumania", "Rusia", "San Marino", "Serbia", "Suecia", "Suiza", "Ucrania", "Vaticano"]
+        pos = [30, 320, 610, 900]
+        posx = random.sample(range(0,4), 4)
+        
+        texto = paises[num[0]]
+        btn_Opcion1.config(bg="white", text=texto)
+        btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+        texto = paises[num[1]]
+        btn_Opcion2.config(bg="white", text=texto)
+        btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+        texto = paises[num[2]]
+        btn_Opcion3.config(bg="white", text=texto)
+        btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+        texto = paises[num[3]]
+        btn_Opcion4.config(bg="white", text=texto)
+        btn_Opcion4.place(x=pos[posx[3]], y=450)
+
+
+    def contador_vidas(op):
+        nonlocal vidas
+        vidas -= 1
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            btn_Opcion3.config(bg="red")
+        else:
+            btn_Opcion4.config(bg="red")
+        
+        if vidas == 0:
+            #aqui va ventana de cuando pierde
+            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
+
+
+    # --- Imagenes Aleatorias ---
+    
+    num = random.sample(range(1,48),4)
+
+    bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Europa\\band{num[0]}.png"
+    foto=PhotoImage(file=bandera)
+    lbl_Bandera = Label(ventana_Europa, image=foto)
+    lbl_Bandera.place(x=480, y=100)
+
+    # --- Texto de los Botones Aleatorio ---
+    
+    paises = ["Relleno", "Albania", "Alemania", "Andorra", "Armenia", "Austria", "Azerbaiyan", "Belgica", "Bielorrusia", "Bosnia y Herzegovina", "Bulgaria", "Chipre", "Croacia", "Dinamarca", "Eslovaquia", "Eslovenia", "España", "Estonia", "Filandia", "Francia", "Georgia", "Grecia", "Hungria", "Irlanda", "Islandia", "Italia", "Letonia", "Liechtenstein", "Litunia", "Luxemburgo", "Macedonia del Norte", "Malta", "Moldavia", "Monaco", "Montenegro", "Noruega", "Paises Bajos", "Polonia", "Portugal", "Reino Unido", "Republica Checa", "Rumania", "Rusia", "San Marino", "Serbia", "Suecia", "Suiza", "Ucrania", "Vaticano"]
+
+    pos = [30, 320, 610, 900]
+    posx = random.sample(range(0,4), 4)
+
+    texto = paises[num[0]]
+    btn_Opcion1 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+    texto = paises[num[1]]
+    btn_Opcion2 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+    texto = paises[num[2]]
+    btn_Opcion3 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+    texto = paises[num[3]]
+    btn_Opcion4 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4.place(x=pos[posx[3]], y=450)
+    
+    ventana_Europa.mainloop()
+
+
+def Oceania():
+    Son_Click.play()
+    ventana_Oceania = Toplevel()
+    ventana_Oceania.title("4 PAISES 1 BANDERA")
+    ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_Oceania.resizable(0,0)
+    #ventana_Oceania.configure(background="white")
+    ventana_Oceania.geometry("1200x650+75+10")
+    
+    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\MapaMundi.png")
+    lbl_imagen = Label(ventana_Oceania, image=imagen)
+    lbl_imagen.place(x=0,y=0)
+
+    lbl_Titulo = Label(ventana_Oceania, text="OCEANIA:", bg="white")
+    lbl_Titulo.place(x=10, y=10)
+
+    # --- Contadores ---
+    vidas = 3
+    puntos = 0
+    lbl_vidas = Label(ventana_Oceania, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas.place(x=900, y=10)
+    
+    lbl_puntaje = Label(ventana_Oceania, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
+    lbl_puntaje.place(x=900, y=60)
+
+    def contador_puntos():
+        nonlocal puntos
+        puntos += 1
+        lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        btn_Opcion1.config(bg="green")
+        #time.sleep(0.2)
+
+        # --- configurar bandera ---
+        num = random.sample(range(1,14),4)
+        bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
+        foto=PhotoImage(file=bandera)
+        lbl_Bandera.config(image=foto)
+        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.image = foto
+
+        # --- configurar botones ---
+        paises = ["Relleno", "Australia", "Nauru", "Nueva Zelanda", "Fiyi", "Islas Marshall", "Islas Salomon", "Kiribati", "Micronesia", "Palaos", "Papua Nueva Guinea", "Samoa", "Tonga", "Tuvalu", "Vanuatu"]
+        pos = [30, 320, 610, 900]
+        posx = random.sample(range(0,4), 4)
+        
+        texto = paises[num[0]]
+        btn_Opcion1.config(bg="white", text=texto)
+        btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+        texto = paises[num[1]]
+        btn_Opcion2.config(bg="white", text=texto)
+        btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+        texto = paises[num[2]]
+        btn_Opcion3.config(bg="white", text=texto)
+        btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+        texto = paises[num[3]]
+        btn_Opcion4.config(bg="white", text=texto)
+        btn_Opcion4.place(x=pos[posx[3]], y=450)
+    
+    def contador_vidas(op):
+        nonlocal vidas
+        vidas -= 1
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            btn_Opcion3.config(bg="red")
+        else:
+            btn_Opcion4.config(bg="red")
+        
+        if vidas == 0:
+            #aqui va ventana de cuando pierde
+            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
+
+    # --- Imagenes Aleatorias ---
+    
+    num = random.sample(range(1,14),4)
+    
+    bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
+    foto=PhotoImage(file=bandera)
+    lbl_Bandera = Label(ventana_Oceania, image=foto)
+    lbl_Bandera.place(x=440, y=100)
+    #lbl_Bandera.zoom(2)
+
+    # --- Texto de los Botones Aleatorio ---
+    
+    paises = ["Relleno", "Australia", "Nauru", "Nueva Zelanda", "Fiyi", "Islas Marshall", "Islas Salomon", "Kiribati", "Micronesia", "Palaos", "Papua Nueva Guinea", "Samoa", "Tonga", "Tuvalu", "Vanuatu"]
+
+    pos = [30, 320, 610, 900]
+    posx = random.sample(range(0,4), 4)
+
+    texto = paises[num[0]]
+    btn_Opcion1 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1.place(x=pos[posx[0]], y=450)
+
+    texto = paises[num[1]]
+    btn_Opcion2 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2.place(x=pos[posx[1]], y=450)
+
+    texto = paises[num[2]]
+    btn_Opcion3 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3.place(x=pos[posx[2]], y=450)
+
+    texto = paises[num[3]]
+    btn_Opcion4 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4.place(x=pos[posx[3]], y=450)
+    
+    ventana_Oceania.mainloop()
+
+# --- Menu (Seleccion de Continente) ---
+
+def Abrir_Ventana_Menu():
+    Son_Click.play()
+    
+    def Volver():
+        Ventana_Menu.destroy()
+        Son_Click.play()
+
+    Ventana_Menu = Toplevel()
+    Ventana_Menu.title("4 PAISES 1 BANDERA")
+    Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    Ventana_Menu.resizable(0,0)
+    Ventana_Menu.geometry("1200x650+75+10")
+
+    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
+    lbl_imagen = Label(Ventana_Menu, image=imagen)
+    lbl_imagen.place(x=0,y=0)
+
+    lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="black", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
+    lbl_seleccion.place(x=75, y=30)
+
+    Btn_Africa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
+    Btn_Africa.place(x=42, y=110)
+    
+    Btn_America = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=America)
+    Btn_America.place(x=42, y=210)
+    
+    Btn_Asia = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="ASIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Asia)
+    Btn_Asia.place(x=42, y=310)
+    
+    Btn_Europa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="EUROPA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Europa)
+    Btn_Europa.place(x=42, y=410)
+    
+    Btn_Oceania = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="OCEANIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Oceania)
+    Btn_Oceania.place(x=42, y=510)
+
+    Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
+    Btn_Volver.place(x=1070, y=50)
+    
+    Ventana_Menu.mainloop()
+    
+# --- Principal (Inicio) ---
+
+Ventana_Principal = Tk()
+Ventana_Principal.title("4 PAISES 1 BANDERA")
+Ventana_Principal.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+Ventana_Principal.resizable(0,0)
+Ventana_Principal.geometry("1200x650+75+10")
+
+imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
+lbl_imagen = Label(Ventana_Principal, image=imagen)
+lbl_imagen.place(x=0,y=0)
+
+lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="black", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
+lbl_Titulo.place(x=75, y=40)
+
+Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
+Btn_Comenazar.place(x=465, y=300)
+
+#Img_P = PhotoImage(file="Proyecto Videojuego Py\imagenes\Botones\Puntaje1.png")
+Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Records)
+Btn_Record.place(x=465, y=380)
+
+Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
+Btn_Salir.place(x=465, y=460)
+
+ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
+Btn_ajustes = Button(Ventana_Principal, image=ajuste_img, cursor="hand2", command=ajuste)
+Btn_ajustes.place(x=1130, y=580)
+
+lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
+lbl_Create.place(x=5, y=620)
+
+# --- Fin ---
+
+Ventana_Principal.mainloop()

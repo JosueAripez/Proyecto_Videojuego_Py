@@ -1,4 +1,6 @@
-# El MAMALON PERRON CHINGON # hghgh
+# El MAMALON PERRON CHINGON PROBANDO
+
+# El MAMALON PERRON CHINGON
 
 # --- Importando --- 
 
@@ -12,13 +14,26 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-#Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
+pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
+pygame.mixer.music.play(-1)
+Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
+Crt_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Estrellas.mp3")
+Inct_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\error.mp3")
+
+def ajuste():
+    Son_Click.play()
+    W_ajustes = Toplevel()
+    W_ajustes.title("AJUSTES")
+    W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    W_ajustes.resizable(0,0)
+    W_ajustes.geometry("700x400+350+170")
+    W_ajustes.mainloop()
 
 def respuesta(boton, op, cont):
     continente = [Africa, America, Asia, Europa, Oceania]
 
     if op == 1:
-        #Son_Click.play()
+        Crt_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
         #ventana.after(1000)
@@ -26,7 +41,7 @@ def respuesta(boton, op, cont):
         continente[cont]()
         
     else:
-        #Son_Click.play()
+        Inct_Click.play()
         boton.config(bg="red")
         
 """     vidas = vidas -1
@@ -38,21 +53,21 @@ def respuesta(boton, op, cont):
 """
 
 def Records():
-    #Son_Click.play()
+    Son_Click.play()
     import webbrowser
     webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
     
 def Salir():
-    #Son_Click.play()
+    Son_Click.play()
     respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
     if respuesta == "yes":
-        #Son_Click.play()
+        Son_Click.play()
         Ventana_Principal.destroy()
         
 # --- Continentes Funciones ----
 
 def Africa():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Africa= Toplevel()
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -122,8 +137,6 @@ def Africa():
         
         if vidas == 0:
             #aqui va ventana de cuando pierde
-            W_Murido = Toplevel()
-            
             print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
 
 
@@ -164,7 +177,7 @@ def Africa():
 
 
 def America():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_America = Toplevel()
     ventana_America.title("4 PAISES 1 BANDERA")
     ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -272,7 +285,7 @@ def America():
 
 
 def Asia():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Asia = Toplevel()
     ventana_Asia.title("4 PAISES 1 BANDERA")
     ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -379,7 +392,7 @@ def Asia():
 
 
 def Europa():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Europa = Toplevel()
     ventana_Europa.title("4 PAISES 1 BANDERA")
     ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -488,7 +501,7 @@ def Europa():
 
 
 def Oceania():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Oceania = Toplevel()
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -601,11 +614,11 @@ def Oceania():
 # --- Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
-    #Son_Click.play()
+    Son_Click.play()
     
     def Volver():
         Ventana_Menu.destroy()
-        #Son_Click.play()
+        Son_Click.play()
 
     Ventana_Menu = Toplevel()
     Ventana_Menu.title("4 PAISES 1 BANDERA")
@@ -664,6 +677,10 @@ Btn_Record.place(x=465, y=380)
 
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
 Btn_Salir.place(x=465, y=460)
+
+ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
+Btn_ajustes = Button(Ventana_Principal, image=ajuste_img, cursor="hand2", command=ajuste)
+Btn_ajustes.place(x=1130, y=580)
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)
