@@ -1,7 +1,5 @@
 # El MAMALON PERRON CHINGON PROBANDO
 
-# El MAMALON PERRON CHINGON
-
 # --- Importando --- 
 
 from tkinter import *
@@ -105,7 +103,7 @@ def Africa():
         bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
         foto=PhotoImage(file=bandera)
         lbl_Bandera.config(image=foto)
-        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.place(x=410, y=100)
         lbl_Bandera.image = foto
 
         # --- configurar botones ---
@@ -256,15 +254,15 @@ def America():
         nonlocal puntos
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        Crt_Click.play()
         btn_Opcion1.config(bg="green")
-        #time.sleep(0.2)
 
         # --- configurar bandera ---
         num = random.sample(range(1,36),4)
         bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\America\\band{num[0]}.png"
         foto=PhotoImage(file=bandera)
         lbl_Bandera.config(image=foto)
-        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.place(x=410, y=100)
         lbl_Bandera.image = foto
 
         # --- configurar botones ---
@@ -287,22 +285,6 @@ def America():
         texto = paises[num[3]]
         btn_Opcion4.config(bg="white", text=texto)
         btn_Opcion4.place(x=pos[posx[3]], y=450)
-
-
-    def contador_vidas(op):
-        nonlocal vidas
-        vidas -= 1
-        lbl_vidas.config(text=f"Vidas: {vidas}")
-        if op == 2:
-            btn_Opcion2.config(bg="red")
-        elif op == 3:
-            btn_Opcion3.config(bg="red")
-        else:
-            btn_Opcion4.config(bg="red")
-        
-        if vidas == 0:
-            #aqui va ventana de cuando pierde
-            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
 
     # --- Imagenes Aleatorias ---
     
@@ -336,6 +318,69 @@ def America():
     btn_Opcion4 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
+    def contador_vidas(op):
+        
+        def fulls():
+            ventana_America.destroy()
+            W_perdio.destroy()
+            
+        nonlocal vidas
+        vidas -= 1
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            Inct_Click.play()
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            Inct_Click.play()
+            btn_Opcion3.config(bg="red")
+        else:
+            Inct_Click.play()
+            btn_Opcion4.config(bg="red")
+        
+        if vidas == 0:
+            
+            def guardar_puntaje():
+                nombre_jugador = nombre_entry.get()
+                        
+                # Guardar puntaje en un archivo de texto
+                with open("puntajes.txt", "a") as archivo:
+                    archivo.write(f"{nombre_jugador}: {puntos}\n")
+                fulls()
+                
+                    
+            #aqui va ventana de cuando pierde
+            Son_Click.play()
+            W_perdio = Toplevel()
+            W_perdio.title("JUEGO TERMINADO")
+            W_perdio.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+            W_perdio.resizable(0,0)
+            W_perdio.geometry("700x400+350+170")
+            
+            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo.place(x=217, y=28)
+            
+            lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
+            lbl_point.place(x=280, y=98)
+            
+            nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
+            nombre_label.place(x=260, y=140)
+            
+            nombre_entry = Entry(W_perdio)
+            nombre_entry.place(x=290, y=210)
+            
+            lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
+            lbl_Titulo.place(x=50, y=237)
+
+            Btn_Puntaje = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="SI", background="white", fg="black", borderwidth=5, font=("Verdana", 20), command=guardar_puntaje)
+            Btn_Puntaje.place(x=244, y=310)
+            
+            Btn_Cerrar = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="NO", background="white", fg="black", borderwidth=5, font=("Verdana", 20), command=fulls)
+            Btn_Cerrar.place(x=365, y=310)
+            
+            W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
+            
+            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
+    
     ventana_America.mainloop()
 
 
@@ -364,14 +409,13 @@ def Asia():
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
         btn_Opcion1.config(bg="green")
-        #time.sleep(0.2)
 
         # --- configurar bandera ---
         num = random.sample(range(1,44),4)
         bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Asia\\band{num[0]}.png"
         foto=PhotoImage(file=bandera)
         lbl_Bandera.config(image=foto)
-        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.place(x=410, y=100)
         lbl_Bandera.image = foto
 
         # --- configurar botones ---
@@ -478,7 +522,7 @@ def Europa():
         bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Europa\\band{num[0]}.png"
         foto=PhotoImage(file=bandera)
         lbl_Bandera.config(image=foto)
-        lbl_Bandera.place(x=480, y=100)
+        lbl_Bandera.place(x=410, y=100)
         lbl_Bandera.image = foto
 
         # --- configurar botones ---
