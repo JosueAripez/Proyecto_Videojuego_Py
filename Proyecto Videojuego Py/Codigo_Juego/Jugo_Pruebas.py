@@ -14,8 +14,8 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
-pygame.mixer.music.play(-1)
+#pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
+#pygame.mixer.music.play(-1)
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
 Crt_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Estrellas.mp3")
 Inct_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\error.mp3")
@@ -36,26 +36,32 @@ def respuesta(boton, op, cont):
         Crt_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
-        #ventana.after(1000)
-        #continente[cont]().withdraw()
         continente[cont]()
         
     else:
         Inct_Click.play()
         boton.config(bg="red")
-        
-"""     vidas = vidas -1
-        if vidas > 0:
-            boton.config(bg="red")
-        else:
-            print("")
-            #aqui tiene que imprimir la pantalla de cuando pierde
-"""
 
-def Records():
+def cargar_puntajes():
     Son_Click.play()
-    import webbrowser
-    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
+    puntajes = []
+    
+    # Cargar puntajes desde el archivo de texto
+    with open("puntajes.txt", "r") as archivo:
+        for linea in archivo:
+            puntajes.append(linea.strip())
+    
+    # Crear una nueva ventana para mostrar los puntajes
+    ventana_puntajes = Toplevel(Ventana_Principal)
+    ventana_puntajes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    ventana_puntajes.resizable(0,0)
+    ventana_puntajes.geometry("700x400+350+170")
+    ventana_puntajes.title("Puntajes")
+    
+    # Crear una etiqueta para cada puntaje
+    for puntaje in puntajes:
+        label_puntaje = Label(ventana_puntajes, text=puntaje)
+        label_puntaje.pack()
     
 def Salir():
     Son_Click.play()
@@ -92,7 +98,6 @@ def Africa():
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
         btn_Opcion1.config(bg="green")
-        #time.sleep(0.2)
 
         # --- configurar bandera ---
         num = random.sample(range(1,56),4)
@@ -122,9 +127,16 @@ def Africa():
         texto = paises[num[3]]
         btn_Opcion4.config(bg="white", text=texto)
         btn_Opcion4.place(x=pos[posx[3]], y=450)
-
+    
+    
+        
 
     def contador_vidas(op):
+        
+        def fulls():
+            ventana_Africa.destroy()
+            W_perdio.destroy()
+            
         nonlocal vidas
         vidas -= 1
         lbl_vidas.config(text=f"Vidas: {vidas}")
@@ -136,8 +148,49 @@ def Africa():
             btn_Opcion4.config(bg="red")
         
         if vidas == 0:
+            
+            def guardar_puntaje():
+                nombre_jugador = nombre_entry.get()
+                        
+                # Guardar puntaje en un archivo de texto
+                with open("puntajes.txt", "a") as archivo:
+                    archivo.write(f"{nombre_jugador}: {puntos}\n")
+                fulls()
+                
+                    
             #aqui va ventana de cuando pierde
+            Son_Click.play()
+            W_perdio = Toplevel()
+            W_perdio.title("JUEGO TERMINADO")
+            W_perdio.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+            W_perdio.resizable(0,0)
+            W_perdio.geometry("700x400+350+170")
+            
+            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black")
+            lbl_Titulo.place(x=251, y=48)
+            
+            lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}")
+            lbl_point.place(x=310, y=112)
+            
+            nombre_label = Label(W_perdio, text="Nombre:")
+            nombre_label.place(x=319, y=156)
+            nombre_entry = Entry(W_perdio)
+            nombre_entry.place(x=326, y=200)
+            
+            lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5)
+            lbl_Titulo.place(x=199, y=237)
+
+            Btn_Puntaje = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="SI", background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=guardar_puntaje)
+            Btn_Puntaje.place(x=264, y=310)
+            
+            Btn_Cerrar = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="NO", background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=fulls)
+            Btn_Cerrar.place(x=385, y=310)
+            
+            W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
+            
             print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
+            
+            
 
 
     # --- Imagenes Aleatorias ---
@@ -162,15 +215,15 @@ def Africa():
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))#lambda: respuesta(btn_Opcion2, 2, 0)
+    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(3))#lambda: respuesta(btn_Opcion3, 3, 0)
+    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))#lambda: respuesta(btn_Opcion4, 4, 0)
+    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
 
     ventana_Africa.mainloop()
@@ -417,7 +470,6 @@ def Europa():
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
         btn_Opcion1.config(bg="green")
-        #time.sleep(0.2)
 
         # --- configurar bandera ---
         num = random.sample(range(1,48),4)
@@ -506,7 +558,6 @@ def Oceania():
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Oceania.resizable(0,0)
-    #ventana_Oceania.configure(background="white")
     ventana_Oceania.geometry("1200x650+75+10")
     
     imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\MapaMundi.png")
@@ -530,7 +581,6 @@ def Oceania():
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
         btn_Opcion1.config(bg="green")
-        #time.sleep(0.2)
 
         # --- configurar bandera ---
         num = random.sample(range(1,14),4)
@@ -584,7 +634,6 @@ def Oceania():
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Oceania, image=foto)
     lbl_Bandera.place(x=440, y=100)
-    #lbl_Bandera.zoom(2)
 
     # --- Texto de los Botones Aleatorio ---
     
@@ -672,7 +721,7 @@ Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="han
 Btn_Comenazar.place(x=465, y=300)
 
 #Img_P = PhotoImage(file="Proyecto Videojuego Py\imagenes\Botones\Puntaje1.png")
-Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Records)
+Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=cargar_puntajes)
 Btn_Record.place(x=465, y=380)
 
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)

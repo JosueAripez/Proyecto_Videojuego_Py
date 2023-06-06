@@ -15,8 +15,8 @@ vidas = 3
 # --- Funciones ---
 
 pygame.mixer.init()
-pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
-pygame.mixer.music.play(-1)
+#pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
+#pygame.mixer.music.play(-1)
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
 Crt_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Estrellas.mp3")
 Inct_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\error.mp3")
