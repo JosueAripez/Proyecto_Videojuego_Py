@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+Josue: 0
+=======
 abraham: 0
+>>>>>>> a91f90831ea5446971f8ada4ed5bceef578fb86e
