@@ -12,19 +12,21 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
+#Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Click.ogg")
 
 def respuesta(boton, op, cont):
     continente = [Africa, America, Asia, Europa, Oceania]
 
     if op == 1:
-        Son_Click.play()
+        #Son_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
+        #ventana.after(1000)
         #continente[cont]().withdraw()
         continente[cont]()
+        
     else:
-        Son_Click.play()
+        #Son_Click.play()
         boton.config(bg="red")
         
 """     vidas = vidas -1
@@ -36,21 +38,21 @@ def respuesta(boton, op, cont):
 """
 
 def Records():
-    Son_Click.play()
+    #Son_Click.play()
     import webbrowser
     webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
     
 def Salir():
-    Son_Click.play()
+    #Son_Click.play()
     respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
     if respuesta == "yes":
-        Son_Click.play()
+        #Son_Click.play()
         Ventana_Principal.destroy()
         
 # --- Continentes Funciones ----
 
 def Africa():
-    Son_Click.play()
+    #Son_Click.play()
     ventana_Africa= Toplevel()
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -72,11 +74,60 @@ def Africa():
 
     # --- Contadores ---
     vidas = 3
+    puntos = 0
     lbl_vidas = Label(ventana_Africa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
     lbl_vidas.place(x=900, y=10)
-    Puntos = 0
-    lbl_puntaje = Label(ventana_Africa, text=f"Puntaje: {Puntos}", bg="white", font=("Arial Black", 24))
+    
+    lbl_puntaje = Label(ventana_Africa, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
     lbl_puntaje.place(x=900, y=60)
+
+    def contador_puntos():
+        nonlocal puntos
+        puntos += 1
+        lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        btn_Opcion1.config(bg="green")
+        #time.sleep(0.2)
+
+        # --- configurar bandera ---
+        num = random.sample(range(1,56),4)
+        bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
+        foto=PhotoImage(file=bandera)
+        lbl_Bandera.config(image=foto)
+
+        # --- configurar botones ---
+        paises = ["Relleno", "Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso", "Burundi", "Cabo Verde", "Camerun", "Chad", "Comoras", "Costa de Marfil", "Egipto", "Eritrea", "Etiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea Bisau", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia", "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio", "Mauritania", "Mozambique", "Naminia", "Niger", "Nigeria", "Republica Centroafricana", "Rpublica del Congo", "Republica Democratica del combo", "Ruanda", "Sahara", "Santo Tome y Principe", "Senegal", "Seychelles", "Sierra Leona", "Somalia", "Somalilandia", "Sauzilandia", "Sudafrica", "Sudan", "Sudan del Sur", "Tanzania", "Togo", "Tunez", "Uganda", "Yibuti", "Zambia", "Zimbaue"]
+        pos = [30, 320, 610, 900]
+        posx = random.sample(range(0,4), 4)
+        
+        texto = paises[num[0]]
+        btn_Opcion1.config(bg="white", text=texto)
+        btn_Opcion1.config.place(x=pos[posx[0]], y=450)
+
+        texto = paises[num[1]]
+        btn_Opcion2.config(bg="white", text=texto)
+        #btn_Opcion2.place(x=pos[posx[0]], y=450)
+
+        texto = paises[num[2]]
+        btn_Opcion3.config(bg="white", text=texto)
+        #btn_Opcion3.place(x=pos[posx[0]], y=450)
+
+        texto = paises[num[3]]
+        btn_Opcion4.config(bg="white", text=texto)
+        #btn_Opcion4.place(x=pos[posx[0]], y=450)
+
+
+
+    def contador_vidas(op):
+        nonlocal vidas
+        vidas -= 1
+        lbl_vidas.config(text=f"Vidas: {vidas}")
+        if op == 2:
+            btn_Opcion2.config(bg="red")
+        elif op == 3:
+            btn_Opcion3.config(bg="red")
+        else:
+            btn_Opcion4.config(bg="red")
+
 
     # --- Texto de los botones aleatortios ---
     
@@ -86,26 +137,30 @@ def Africa():
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion1, 1, 0, ))
+    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion2, 2, 0))
+    print(texto)
+    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))#lambda: respuesta(btn_Opcion2, 2, 0)
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion3, 3, 0))
+    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(3))#lambda: respuesta(btn_Opcion3, 3, 0)
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: respuesta(btn_Opcion4, 4, 0))
+    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))#lambda: respuesta(btn_Opcion4, 4, 0)
     btn_Opcion4.place(x=pos[posx[3]], y=450)
+
+    if btn_Opcion1 == 0:
+        print(vidas)
 
     ventana_Africa.mainloop()
 
 
 def America():
-    Son_Click.play()
+    #Son_Click.play()
     ventana_America = Toplevel()
     ventana_America.title("4 PAISES 1 BANDERA")
     ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -160,7 +215,7 @@ def America():
 
 
 def Asia():
-    Son_Click.play()
+    #Son_Click.play()
     ventana_Asia = Toplevel()
     ventana_Asia.title("4 PAISES 1 BANDERA")
     ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -214,7 +269,7 @@ def Asia():
 
 
 def Europa():
-    Son_Click.play()
+    #Son_Click.play()
     ventana_Europa = Toplevel()
     ventana_Europa.title("4 PAISES 1 BANDERA")
     ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -269,7 +324,7 @@ def Europa():
 
 
 def Oceania():
-    Son_Click.play()
+    #Son_Click.play()
     ventana_Oceania = Toplevel()
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
@@ -330,11 +385,11 @@ def Oceania():
 # --- Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
-    Son_Click.play()
+    #Son_Click.play()
     
     def Volver():
         Ventana_Menu.destroy()
-        Son_Click.play()
+        #Son_Click.play()
 
     Ventana_Menu = Toplevel()
     Ventana_Menu.title("4 PAISES 1 BANDERA")
