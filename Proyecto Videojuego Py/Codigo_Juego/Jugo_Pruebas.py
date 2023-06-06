@@ -14,8 +14,8 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-#pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
-#pygame.mixer.music.play(-1)
+pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
+pygame.mixer.music.play(-1)
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
 Crt_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Estrellas.mp3")
 Inct_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\error.mp3")
@@ -97,6 +97,7 @@ def Africa():
         nonlocal puntos
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
+        Crt_Click.play()
         btn_Opcion1.config(bg="green")
 
         # --- configurar bandera ---
@@ -128,9 +129,6 @@ def Africa():
         btn_Opcion4.config(bg="white", text=texto)
         btn_Opcion4.place(x=pos[posx[3]], y=450)
     
-    
-        
-
     def contador_vidas(op):
         
         def fulls():
@@ -141,10 +139,13 @@ def Africa():
         vidas -= 1
         lbl_vidas.config(text=f"Vidas: {vidas}")
         if op == 2:
+            Inct_Click.play()
             btn_Opcion2.config(bg="red")
         elif op == 3:
+            Inct_Click.play()
             btn_Opcion3.config(bg="red")
         else:
+            Inct_Click.play()
             btn_Opcion4.config(bg="red")
         
         if vidas == 0:
@@ -166,25 +167,26 @@ def Africa():
             W_perdio.resizable(0,0)
             W_perdio.geometry("700x400+350+170")
             
-            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black")
-            lbl_Titulo.place(x=251, y=48)
+            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo.place(x=217, y=28)
             
-            lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}")
-            lbl_point.place(x=310, y=112)
+            lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
+            lbl_point.place(x=280, y=98)
             
-            nombre_label = Label(W_perdio, text="Nombre:")
-            nombre_label.place(x=319, y=156)
+            nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
+            nombre_label.place(x=260, y=140)
+            
             nombre_entry = Entry(W_perdio)
-            nombre_entry.place(x=326, y=200)
+            nombre_entry.place(x=290, y=210)
             
-            lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5)
-            lbl_Titulo.place(x=199, y=237)
+            lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
+            lbl_Titulo.place(x=50, y=237)
 
-            Btn_Puntaje = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="SI", background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=guardar_puntaje)
-            Btn_Puntaje.place(x=264, y=310)
+            Btn_Puntaje = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="SI", background="white", fg="black", borderwidth=5, font=("Verdana", 20), command=guardar_puntaje)
+            Btn_Puntaje.place(x=244, y=310)
             
-            Btn_Cerrar = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="NO", background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=fulls)
-            Btn_Cerrar.place(x=385, y=310)
+            Btn_Cerrar = Button(W_perdio, activebackground="gray70", cursor="hand2",  text="NO", background="white", fg="black", borderwidth=5, font=("Verdana", 20), command=fulls)
+            Btn_Cerrar.place(x=365, y=310)
             
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
             
@@ -733,6 +735,8 @@ Btn_ajustes.place(x=1130, y=580)
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)
+
+Ventana_Principal.protocol("WM_DELETE_WINDOW", lambda: None)
 
 # --- Fin ---
 
