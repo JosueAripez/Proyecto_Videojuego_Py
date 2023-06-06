@@ -25,6 +25,11 @@ def ajuste():
     W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     W_ajustes.resizable(0,0)
     W_ajustes.geometry("700x400+350+170")
+    
+    Fond_Ajsute = PhotoImage(file="Proyecto Videojuego Py\imagenes\ajuste_fond.png")
+    lbl_f_a = Label(W_ajustes, image=Fond_Ajsute)
+    lbl_f_a.place(x=0, y=0)
+    
     W_ajustes.mainloop()
 
 def respuesta(boton, op, cont):
@@ -53,7 +58,7 @@ def cargar_puntajes():
     ventana_puntajes = Toplevel(Ventana_Principal)
     ventana_puntajes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_puntajes.resizable(0,0)
-    ventana_puntajes.geometry("700x400+350+170")
+    ventana_puntajes.geometry("200x400+75+10")
     ventana_puntajes.title("Puntajes")
     
     # Crear una etiqueta para cada puntaje
@@ -606,7 +611,7 @@ def Oceania():
     ventana_Oceania.resizable(0,0)
     ventana_Oceania.geometry("1200x650+75+10")
     
-    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\MapaMundi.png")
+    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\OceaniaFond.png")
     lbl_imagen = Label(ventana_Oceania, image=imagen)
     lbl_imagen.place(x=0,y=0)
 
@@ -726,7 +731,7 @@ def Abrir_Ventana_Menu():
     lbl_imagen.place(x=0,y=0)
 
     lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="black", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
-    lbl_seleccion.place(x=75, y=30)
+    lbl_seleccion.place(x=0, y=0)
 
     Btn_Africa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
     Btn_Africa.place(x=42, y=110)
@@ -744,7 +749,7 @@ def Abrir_Ventana_Menu():
     Btn_Oceania.place(x=42, y=510)
 
     Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Volver.place(x=1070, y=50)
+    Btn_Volver.place(x=1105, y=0)
     
     Ventana_Menu.mainloop()
     
@@ -766,8 +771,8 @@ lbl_Titulo.place(x=75, y=40)
 Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
 Btn_Comenazar.place(x=465, y=300)
 
-#Img_P = PhotoImage(file="Proyecto Videojuego Py\imagenes\Botones\Puntaje1.png")
-Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=cargar_puntajes)
+
+Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
 Btn_Record.place(x=465, y=380)
 
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
@@ -782,6 +787,6 @@ lbl_Create.place(x=5, y=620)
 
 Ventana_Principal.protocol("WM_DELETE_WINDOW", lambda: None)
 
-# --- Fin ---
+# --- Fin --- 260*64
 
 Ventana_Principal.mainloop()
