@@ -431,23 +431,28 @@ def Abrir_Ventana_Menu():
     lbl_imagen.place(x=0,y=0)
 
     lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="black", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
-    lbl_seleccion.place(x=75, y=30)
+    lbl_seleccion.place(x=0, y=0)
 
+    ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
     Btn_Africa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
     Btn_Africa.place(x=42, y=110)
     
+    ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
     Btn_America = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=America)
     Btn_America.place(x=42, y=210)
     
+    ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
     Btn_Asia = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="ASIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Asia)
     Btn_Asia.place(x=42, y=310)
     
+    ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
     Btn_Europa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="EUROPA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Europa)
     Btn_Europa.place(x=42, y=410)
     
+    ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
     Btn_Oceania = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="OCEANIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Oceania)
     Btn_Oceania.place(x=42, y=510)
-
+    
     Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
     Btn_Volver.place(x=1104, y=0)
     
