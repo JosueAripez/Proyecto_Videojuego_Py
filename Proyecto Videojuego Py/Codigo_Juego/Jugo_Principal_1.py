@@ -343,6 +343,7 @@ def ajuste():
     W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     W_ajustes.resizable(0,0)
     W_ajustes.geometry("700x400+350+170")
+    W_ajustes.mainloop()
     
     
     
