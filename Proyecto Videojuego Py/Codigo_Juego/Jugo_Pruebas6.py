@@ -12,8 +12,8 @@ import pygame
 # --- Funciones ---
 
 pygame.mixer.init()
-pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
-pygame.mixer.music.play(-1)
+#pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
+#pygame.mixer.music.play(-1)
 Son_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\click_btn.mp3")
 Crt_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\Estrellas.mp3")
 Inct_Click = pygame.mixer.Sound("Proyecto Videojuego Py\Musica\error.mp3")
@@ -23,7 +23,7 @@ def respuesta(boton, op, cont):
     continente = [Africa, America, Asia, Europa, Oceania]
 
     if op == 1:
-        #Son_Click.play()
+        Crt_Click.play()
         boton.config(bg="green")
         time.sleep(0.2)
         #ventana.after(1000)
@@ -31,7 +31,7 @@ def respuesta(boton, op, cont):
         continente[cont]()
         
     else:
-        #Son_Click.play()
+        Inct_Click.play()
         boton.config(bg="red")
         
 """     vidas = vidas -1
@@ -42,28 +42,44 @@ def respuesta(boton, op, cont):
             #aqui tiene que imprimir la pantalla de cuando pierde
 """
 
-def Records():
-    #Son_Click.play()
-    import webbrowser
-    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
+def cargar_puntajes():
+    Son_Click.play()
+    puntajes = []
     
+    # Cargar puntajes desde el archivo de texto
+    with open("puntajes.txt", "r") as archivo:
+        for linea in archivo:
+            puntajes.append(linea.strip())
+    
+    # Crear una nueva ventana para mostrar los puntajes
+    ventana_puntajes = Toplevel(Ventana_Principal)
+    ventana_puntajes.title("Puntajes")
+    ventana_puntajes.geometry("700x400+350+170")
+    
+    # Crear una etiqueta para cada puntaje
+    for puntaje in puntajes:
+        label_puntaje = Label(ventana_puntajes, text=puntaje)
+        label_puntaje.pack()
+        
 def Salir():
-    #Son_Click.play()
+    Son_Click.play()
     respuesta = messagebox.askquestion("4 Paises 1 Bandera", "¿Estas seguro que deseas salir?")
     if respuesta == "yes":
-        #Son_Click.play()
+        Son_Click.play()
         Ventana_Principal.destroy()
         
 # --- Continentes Funciones ----
 
 def Africa():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Africa= Toplevel()
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Africa.resizable(0,0)
     ventana_Africa.configure(background="white")
     ventana_Africa.geometry("1200x650+75+10")
+    Btn_Volver = Button(ventana_Africa, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=ventana_Africa.destroy())
+    Btn_Volver.place(x=1104, y=0)
 
     lbl_Titulo = Label(ventana_Africa, text="AFRICA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
@@ -165,13 +181,15 @@ def Africa():
 
 
 def America():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_America = Toplevel()
     ventana_America.title("4 PAISES 1 BANDERA")
     ventana_America.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_America.resizable(0,0)
     ventana_America.configure(background="white")
     ventana_America.geometry("1200x650+75+10")
+    Btn_Volver = Button(ventana_America, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=ventana_America.destroy())
+    Btn_Volver.place(x=1104, y=0)
 
     lbl_Titulo = Label(ventana_America, text="AMERICA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
@@ -220,13 +238,15 @@ def America():
 
 
 def Asia():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Asia = Toplevel()
     ventana_Asia.title("4 PAISES 1 BANDERA")
     ventana_Asia.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Asia.resizable(0,0)
     ventana_Asia.configure(background="white")
     ventana_Asia.geometry("1200x650+75+10")
+    Btn_Volver = Button(ventana_Asia, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=ventana_Asia.destroy())
+    Btn_Volver.place(x=1104, y=0)
     lbl_Titulo = Label(ventana_Asia, text="ASIA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
 
@@ -274,13 +294,15 @@ def Asia():
 
 
 def Europa():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Europa = Toplevel()
     ventana_Europa.title("4 PAISES 1 BANDERA")
     ventana_Europa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Europa.resizable(0,0)
     ventana_Europa.configure(background="white")
     ventana_Europa.geometry("1200x650+75+10")
+    Btn_Volver = Button(ventana_Europa, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=ventana_Europa.destroy())
+    Btn_Volver.place(x=1104, y=0)
 
     lbl_Titulo = Label(ventana_Europa, text="EUROPA:", background="white", fg="black")
     lbl_Titulo.place(x=10, y=10)
@@ -329,13 +351,15 @@ def Europa():
 
 
 def Oceania():
-    #Son_Click.play()
+    Son_Click.play()
     ventana_Oceania = Toplevel()
     ventana_Oceania.title("4 PAISES 1 BANDERA")
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Oceania.resizable(0,0)
     #ventana_Oceania.configure(background="white")
     ventana_Oceania.geometry("1200x650+75+10")
+    Btn_Volver = Button(ventana_Oceania, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=ventana_Oceania.destroy())
+    Btn_Volver.place(x=1104, y=0)
     
     imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\MapaMundi.png")
     lbl_imagen = Label(ventana_Oceania, image=imagen)
@@ -390,11 +414,11 @@ def Oceania():
 # --- Menu (Seleccion de Continente) ---
 
 def Abrir_Ventana_Menu():
-    #Son_Click.play()
+    Son_Click.play()
     
     def Volver():
         Ventana_Menu.destroy()
-        #Son_Click.play()
+        Son_Click.play()
 
     Ventana_Menu = Toplevel()
     Ventana_Menu.title("4 PAISES 1 BANDERA")
@@ -425,9 +449,18 @@ def Abrir_Ventana_Menu():
     Btn_Oceania.place(x=42, y=510)
 
     Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
-    Btn_Volver.place(x=1070, y=50)
+    Btn_Volver.place(x=1104, y=0)
     
     Ventana_Menu.mainloop()
+    
+def ajuste():
+    Son_Click.play()
+    W_ajustes = Toplevel()
+    W_ajustes.title("AJUSTES")
+    W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
+    W_ajustes.resizable(0,0)
+    W_ajustes.geometry("700x400+350+170")
+    W_ajustes.mainloop()
     
 # --- Principal (Inicio) ---
 
@@ -447,12 +480,17 @@ lbl_Titulo.place(x=75, y=40)
 Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
 Btn_Comenazar.place(x=465, y=300)
 
-#Img_P = PhotoImage(file="Proyecto Videojuego Py\imagenes\Botones\Puntaje1.png")
-Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Records)
+Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJES", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=cargar_puntajes)
 Btn_Record.place(x=465, y=380)
 
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
 Btn_Salir.place(x=465, y=460)
+
+
+ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
+Btn_ajustes = Button(Ventana_Principal, image=ajuste_img, cursor="hand2", command=ajuste)
+Btn_ajustes.place(x=1130, y=580)
+
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)
