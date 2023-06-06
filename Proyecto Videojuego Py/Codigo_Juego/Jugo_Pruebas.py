@@ -26,10 +26,6 @@ def ajuste():
     W_ajustes.resizable(0,0)
     W_ajustes.geometry("700x400+350+170")
     
-    Fond_Ajsute = PhotoImage(file="Proyecto Videojuego Py\imagenes\ajuste_fond.png")
-    lbl_f_a = Label(W_ajustes, image=Fond_Ajsute)
-    lbl_f_a.place(x=0, y=0)
-    
     W_ajustes.mainloop()
 
 def respuesta(boton, op, cont):
@@ -58,9 +54,10 @@ def cargar_puntajes():
     ventana_puntajes = Toplevel(Ventana_Principal)
     ventana_puntajes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_puntajes.resizable(0,0)
+    
     ventana_puntajes.geometry("200x400+75+10")
     ventana_puntajes.title("Puntajes")
-    
+  
     # Crear una etiqueta para cada puntaje
     for puntaje in puntajes:
         label_puntaje = Label(ventana_puntajes, text=puntaje)
@@ -81,20 +78,20 @@ def Africa():
     ventana_Africa.title("4 PAISES 1 BANDERA")
     ventana_Africa.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Africa.resizable(0,0)
-    ventana_Africa.configure(background="white")
+    ventana_Africa.configure(background="DeepSkyBlue3")
     ventana_Africa.geometry("1200x650+75+10")
 
-    lbl_Titulo = Label(ventana_Africa, text="AFRICA:", background="white", fg="black")
-    lbl_Titulo.place(x=10, y=10)
+    lbl_Titulo = Label(ventana_Africa, text="AFRICA", background="white", fg="black", font=("Arial Black", 24), bg="DeepSkyBlue3")
+    lbl_Titulo.place(x=20, y=10)
 
     # --- Contadores ---
     vidas = 3
     puntos = 0
-    lbl_vidas = Label(ventana_Africa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24))
+    lbl_vidas = Label(ventana_Africa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24), background="DeepSkyBlue3")
     lbl_vidas.place(x=900, y=10)
     
-    lbl_puntaje = Label(ventana_Africa, text=f"Puntaje: {puntos}", bg="white", font=("Arial Black", 24))
-    lbl_puntaje.place(x=900, y=60)
+    lbl_puntaje = Label(ventana_Africa, text=f" Puntaje:{puntos}", bg="white", font=("Arial Black", 24), background="DeepSkyBlue3")
+    lbl_puntaje.place(x=500, y=10)
 
     def contador_puntos():
         nonlocal puntos
@@ -610,10 +607,6 @@ def Oceania():
     ventana_Oceania.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     ventana_Oceania.resizable(0,0)
     ventana_Oceania.geometry("1200x650+75+10")
-    
-    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\OceaniaFond.png")
-    lbl_imagen = Label(ventana_Oceania, image=imagen)
-    lbl_imagen.place(x=0,y=0)
 
     lbl_Titulo = Label(ventana_Oceania, text="OCEANIA:", bg="white")
     lbl_Titulo.place(x=10, y=10)
@@ -725,28 +718,30 @@ def Abrir_Ventana_Menu():
     Ventana_Menu.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     Ventana_Menu.resizable(0,0)
     Ventana_Menu.geometry("1200x650+75+10")
-
-    imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
-    lbl_imagen = Label(Ventana_Menu, image=imagen)
-    lbl_imagen.place(x=0,y=0)
+    Ventana_Menu.configure(bg="DeepSkyBlue3")
 
     lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="black", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
     lbl_seleccion.place(x=0, y=0)
 
-    Btn_Africa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AFRICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command= Africa)
-    Btn_Africa.place(x=42, y=110)
+    imgAfrica = PhotoImage(file="Proyecto Videojuego Py\imagenes\Africa (Custom).png")
+    Btn_Africa = Button(Ventana_Menu, image=imgAfrica, cursor="hand2", width=270, height=170, background="DeepSkyBlue3", command= Africa)
+    Btn_Africa.place(x=280, y=450)
     
-    Btn_America = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="AMERICA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=America)
-    Btn_America.place(x=42, y=210)
+    imgAmerica = PhotoImage(file="Proyecto Videojuego Py\imagenes\America (Custom).png")
+    Btn_America = Button(Ventana_Menu, image=imgAmerica, cursor="hand2", width=270, height=170, background="DeepSkyBlue3", command=America)
+    Btn_America.place(x=30, y=150)
     
-    Btn_Asia = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="ASIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Asia)
-    Btn_Asia.place(x=42, y=310)
+    imgAsia = PhotoImage(file="Proyecto Videojuego Py\imagenes\Asia (Custom).png")
+    Btn_Asia = Button(Ventana_Menu, image=imgAsia, cursor="hand2", width=270, height=170, background="DeepSkyBlue3", command=Asia)
+    Btn_Asia.place(x=900, y=150)
     
-    Btn_Europa = Button(Ventana_Menu, activebackground="gray70", cursor="hand2",  text="EUROPA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Europa)
-    Btn_Europa.place(x=42, y=410)
+    imgEuropa = PhotoImage(file="Proyecto Videojuego Py\imagenes\Europa (Custom).png")
+    Btn_Europa = Button(Ventana_Menu, image=imgEuropa, cursor="hand2", width=270, height=170, background="DeepSkyBlue3", command=Europa)
+    Btn_Europa.place(x=480, y=150)
     
-    Btn_Oceania = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="OCEANIA", width=65, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Oceania)
-    Btn_Oceania.place(x=42, y=510)
+    imgOceania = PhotoImage(file="Proyecto Videojuego Py\imagenes\Oceania (Custom).png")
+    Btn_Oceania = Button(Ventana_Menu, image=imgOceania, cursor="hand2", width=270, height=170, background="DeepSkyBlue3", command=Oceania)
+    Btn_Oceania.place(x=700, y=450)
 
     Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Volver)
     Btn_Volver.place(x=1105, y=0)
@@ -761,28 +756,28 @@ Ventana_Principal.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
 Ventana_Principal.resizable(0,0)
 Ventana_Principal.geometry("1200x650+75+10")
 
-imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Fondo_Band.png")
+imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\MapaMundif.png")
 lbl_imagen = Label(Ventana_Principal, image=imagen)
 lbl_imagen.place(x=0,y=0)
 
 lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="black", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
 lbl_Titulo.place(x=75, y=40)
 
-Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Abrir_Ventana_Menu)
-Btn_Comenazar.place(x=465, y=300)
+Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=20, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Abrir_Ventana_Menu)
+Btn_Comenazar.place(x=430, y=300)
 
 
-Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="JUGAR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
-Btn_Record.place(x=465, y=380)
+Btn_Record = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="PUNTAJE", width=20, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=cargar_puntajes)
+Btn_Record.place(x=430, y=400)
 
-Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=30, height=3, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 10), command=Salir)
-Btn_Salir.place(x=465, y=460)
+Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=20, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Salir)
+Btn_Salir.place(x=430, y=500)
 
 ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
 Btn_ajustes = Button(Ventana_Principal, image=ajuste_img, cursor="hand2", command=ajuste)
 Btn_ajustes.place(x=1130, y=580)
 
-lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
+lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez ©", fg="white", bg="black", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)
 
 Ventana_Principal.protocol("WM_DELETE_WINDOW", lambda: None)
