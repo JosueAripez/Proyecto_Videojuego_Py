@@ -189,7 +189,7 @@ def Africa():
             lbl_imagen.place(x=0,y=0)
             W_perdio.geometry("700x400+350+170")
         
-            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo = Label(W_perdio, text="PUNTUACIÓN", fg="black", font=("Verdana", 30))
             lbl_Titulo.place(x=217, y=28)
             
             lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
@@ -343,7 +343,7 @@ def America():
             lbl_imagen.place(x=0,y=0)
             W_perdio.geometry("700x400+350+170")
         
-            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo = Label(W_perdio, text="PUNTUACIÓN", fg="black", font=("Verdana", 30))
             lbl_Titulo.place(x=217, y=28)
             
             lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
@@ -498,7 +498,7 @@ def Asia():
             lbl_imagen.place(x=0,y=0)
             W_perdio.geometry("700x400+350+170")
         
-            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo = Label(W_perdio, text="PUNTUACIÓN", fg="black", font=("Verdana", 30))
             lbl_Titulo.place(x=217, y=28)
             
             lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
@@ -654,7 +654,7 @@ def Europa():
             lbl_imagen.place(x=0,y=0)
             W_perdio.geometry("700x400+350+170")
         
-            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo = Label(W_perdio, text="PUNTUACIÓN", fg="black", font=("Verdana", 30))
             lbl_Titulo.place(x=217, y=28)
             
             lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
@@ -808,7 +808,7 @@ def Oceania():
             lbl_imagen.place(x=0,y=0)
             W_perdio.geometry("700x400+350+170")
         
-            lbl_Titulo = Label(W_perdio, text="PUNTUACION", fg="black", font=("Verdana", 30))
+            lbl_Titulo = Label(W_perdio, text="PUNTUACIÓN", fg="black", font=("Verdana", 30))
             lbl_Titulo.place(x=217, y=28)
             
             lbl_point = Label(W_perdio, text=f"Puntaje: {puntos}", font=("Verdana", 20))
