@@ -1,4 +1,4 @@
-# El MAMALON PERRON CHINGON PROBANDO
+# El MAMALON PERRON CHINGON
 
 # --- Importando --- 
 
