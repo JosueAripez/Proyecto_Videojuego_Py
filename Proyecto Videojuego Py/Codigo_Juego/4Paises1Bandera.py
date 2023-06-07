@@ -74,7 +74,7 @@ def cargar_puntajes():
     
     ventana_puntajes.geometry("200x400+75+10")
     ventana_puntajes.title("Puntajes")
-  
+
     # Crear una etiqueta para cada puntaje
     for puntaje in puntajes:
         label_puntaje = Label(ventana_puntajes, text=puntaje)
@@ -101,7 +101,7 @@ def Africa():
     lbl_imagen.place(x=0,y=0)
     ventana_Africa.geometry("1200x650+75+10")
 
-    lbl_Titulo = Label(ventana_Africa, text="Africa", background="white", fg="black", font=("Arial Black", 24), bg="white")
+    lbl_Titulo = Label(ventana_Africa, text="AFRICA", background="white", fg="black", font=("Arial Black", 24), bg="white")
     lbl_Titulo.place(x=50, y=10)
 
     # --- Contadores ---
@@ -110,7 +110,7 @@ def Africa():
     lbl_vidas = Label(ventana_Africa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24), background="white")
     lbl_vidas.place(x=980, y=10)
     
-    lbl_puntaje = Label(ventana_Africa, text=f" Puntaje:{puntos}", bg="white", font=("Arial Black", 24), background="white")
+    lbl_puntaje = Label(ventana_Africa, text=f" Puntaje: {puntos}", bg="white", font=("Arial Black", 24), background="white")
     lbl_puntaje.place(x=500, y=10)
 
     def contador_puntos():
@@ -178,8 +178,7 @@ def Africa():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-                    
-            #aqui va ventana de cuando pierde
+                
             Son_Click.play()
             W_perdio = Toplevel()
             W_perdio.title("JUEGO TERMINADO")
@@ -212,43 +211,35 @@ def Africa():
             Btn_Cerrar.place(x=365, y=310)
             
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
-            
-            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
-            
-            
-
 
     # --- Imagenes Aleatorias ---
-    
     num = random.sample(range(1,56),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Africa, image=foto)
-    lbl_Bandera.place(x=480, y=100)
-
+    lbl_Bandera.place(x=405, y=100)
 
     # --- Texto de los botones aleatortios ---
-    
     paises = ["Relleno", "Angola", "Argelia", "Benin", "Botsuana", "Burkina Faso", "Burundi", "Cabo Verde", "Camerun", "Chad", "Comoras", "Costa de Marfil", "Egipto", "Eritrea", "Etiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea Bisau", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia", "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio", "Mauritania", "Mozambique", "Naminia", "Niger", "Nigeria", "Republica Centroafricana", "Rpublica del Congo", "Republica Democratica del combo", "Ruanda", "Sahara", "Santo Tome y Principe", "Senegal", "Seychelles", "Sierra Leona", "Somalia", "Somalilandia", "Sauzilandia", "Sudafrica", "Sudan", "Sudan del Sur", "Tanzania", "Togo", "Tunez", "Uganda", "Yibuti", "Zambia", "Zimbaue"]
     
     pos = [30, 320, 610, 900]
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1 = Button(ventana_Africa, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command= contador_puntos)
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4 = Button(ventana_Africa, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
 
     ventana_Africa.mainloop()
@@ -265,7 +256,7 @@ def America():
     lbl_imagen.place(x=0,y=0)
     ventana_America.geometry("1200x650+75+10")
 
-    lbl_Titulo = Label(ventana_America, text="America", background="white", fg="black", font=("Arial Black", 24), bg="white")
+    lbl_Titulo = Label(ventana_America, text="AMERICA", background="white", fg="black", font=("Arial Black", 24), bg="white")
     lbl_Titulo.place(x=50, y=10)
 
     # --- Contadores ---
@@ -274,7 +265,7 @@ def America():
     lbl_vidas = Label(ventana_America, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24), background="white")
     lbl_vidas.place(x=980, y=10)
     
-    lbl_puntaje = Label(ventana_America, text=f" Puntaje:{puntos}", bg="white", font=("Arial Black", 24), background="white")
+    lbl_puntaje = Label(ventana_America, text=f" Puntaje: {puntos}", bg="white", font=("Arial Black", 24), background="white")
     lbl_puntaje.place(x=500, y=10)
 
     def contador_puntos():
@@ -342,7 +333,6 @@ def America():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-            #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
             W_perdio.title("JUEGO TERMINADO")
@@ -375,39 +365,35 @@ def America():
             Btn_Cerrar.place(x=365, y=310)
             
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
-            
-            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
 
     # --- Imagenes Aleatorias ---
-    
     num = random.sample(range(1,36),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\America\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_America, image=foto)
-    lbl_Bandera.place(x=480, y=100)
+    lbl_Bandera.place(x=405, y=100)
 
     # --- Texto de los Botones Aleatorio ---
-    
     paises = ["Relleno", "Antigua y Barbuba", "Argentina", "Bahamas", "Barbados", "Belice", "Bolivia", "Brasil", "Canada", "Chile", "Colombia", "Costa Rica", "Cuba", "Dominica", "Ecuador", "EEUU", "El Salvador", "Granada", "Guatemala", "Guyana", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Paraguay", "Peru", "Puerto Rico", "Republica Dominicana", "San Cristobal y Nieves", "San Vicente y las Granadinas", "Sanata Lucia", "Surinam", "Trinidad y Tobago", "Uruguay", "Venezuela"]
 
     pos = [30, 320, 610, 900]
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command= contador_puntos)
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2 = Button(ventana_America, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_America.mainloop()
@@ -424,7 +410,7 @@ def Asia():
     lbl_imagen = Label(ventana_Asia, image=imagen)
     lbl_imagen.place(x=0,y=0)
     ventana_Asia.geometry("1200x650+75+10")
-    lbl_Titulo = Label(ventana_Asia, text="Asia", background="white", fg="black", font=("Arial Black", 24), bg="white")
+    lbl_Titulo = Label(ventana_Asia, text="ASIA", background="white", fg="black", font=("Arial Black", 24), bg="white")
     lbl_Titulo.place(x=50, y=10)
 
     # --- Contadores ---
@@ -433,7 +419,7 @@ def Asia():
     lbl_vidas = Label(ventana_Asia, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24), background="white")
     lbl_vidas.place(x=980, y=10)
     
-    lbl_puntaje = Label(ventana_Asia, text=f" Puntaje:{puntos}", bg="white", font=("Arial Black", 24), background="white")
+    lbl_puntaje = Label(ventana_Asia, text=f" Puntaje: {puntos}", bg="white", font=("Arial Black", 24), background="white")
     lbl_puntaje.place(x=500, y=10)
 
     def contador_puntos():
@@ -502,7 +488,6 @@ def Asia():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-            #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
             W_perdio.title("JUEGO TERMINADO")
@@ -535,39 +520,35 @@ def Asia():
             Btn_Cerrar.place(x=365, y=310)
             
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
-            
-            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
 
     # --- Imagenes Aleatorias ---
-    
     num = random.sample(range(1,44),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Asia\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Asia, image=foto)
-    lbl_Bandera.place(x=480, y=100)
+    lbl_Bandera.place(x=405, y=100)
 
     # --- Texto de los Botones Aleatorio ---
-    
     paises = ["Relleno", "Afganistan", "Arabia Saudita", "Banglades", "Barein", "Birmania", "Brunei", "Butan", "Camboya", "Catar", "China", "Corea del Norte", "Corea del Sur", "Emiratos Arabes Unidos", "Filipinas", "India", "Indonesia", "Irak", "Iran", "Israel", "Japon", "Jordania", "Kazajistan", "Kuwait", "Laos", "Libano", "Malasia", "Maldivas", "Mongolia", "Nepal", "Oman", "Pakistan", "Palestina", "Singapur", "Siria", "Sri Lanka", "Tailandia", "Taiwan", "Tayikistan", "Timor Oriental", "Turkmenistan", "Turquia", "Uzbekistain", "Vietnam", "Yemen"]
 
     pos = [30, 320, 610, 900]
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command= contador_puntos)
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3 = Button(ventana_Asia, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4 = Button(ventana_Asia, cursor="hand2",  text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Asia.mainloop()
@@ -585,7 +566,7 @@ def Europa():
     lbl_imagen.place(x=0,y=0)
     ventana_Europa.geometry("1200x650+75+10")
 
-    lbl_Titulo = Label(ventana_Europa, text="Europa", background="white", fg="black", font=("Arial Black", 24), bg="white")
+    lbl_Titulo = Label(ventana_Europa, text="EUROPA", background="white", fg="black", font=("Arial Black", 24), bg="white")
     lbl_Titulo.place(x=50, y=10)
 
     # --- Contadores ---
@@ -594,7 +575,7 @@ def Europa():
     lbl_vidas = Label(ventana_Europa, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24), background="white")
     lbl_vidas.place(x=980, y=10)
     
-    lbl_puntaje = Label(ventana_Europa, text=f" Puntaje:{puntos}", bg="white", font=("Arial Black", 24), background="white")
+    lbl_puntaje = Label(ventana_Europa, text=f" Puntaje: {puntos}", bg="white", font=("Arial Black", 24), background="white")
     lbl_puntaje.place(x=500, y=10)
 
     def contador_puntos():
@@ -663,7 +644,6 @@ def Europa():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                     
-            #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
             W_perdio.title("JUEGO TERMINADO")
@@ -696,40 +676,35 @@ def Europa():
             Btn_Cerrar.place(x=365, y=310)
             
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
-            
-            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
-
 
     # --- Imagenes Aleatorias ---
-    
     num = random.sample(range(1,48),4)
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Europa\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Europa, image=foto)
-    lbl_Bandera.place(x=480, y=100)
+    lbl_Bandera.place(x=405, y=100)
 
     # --- Texto de los Botones Aleatorio ---
-    
     paises = ["Relleno", "Albania", "Alemania", "Andorra", "Armenia", "Austria", "Azerbaiyan", "Belgica", "Bielorrusia", "Bosnia y Herzegovina", "Bulgaria", "Chipre", "Croacia", "Dinamarca", "Eslovaquia", "Eslovenia", "España", "Estonia", "Filandia", "Francia", "Georgia", "Grecia", "Hungria", "Irlanda", "Islandia", "Italia", "Letonia", "Liechtenstein", "Litunia", "Luxemburgo", "Macedonia del Norte", "Malta", "Moldavia", "Monaco", "Montenegro", "Noruega", "Paises Bajos", "Polonia", "Portugal", "Reino Unido", "Republica Checa", "Rumania", "Rusia", "San Marino", "Serbia", "Suecia", "Suiza", "Ucrania", "Vaticano"]
 
     pos = [30, 320, 610, 900]
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command= contador_puntos)
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4 = Button(ventana_Europa, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Europa.mainloop()
@@ -746,7 +721,7 @@ def Oceania():
     lbl_imagen = Label(ventana_Oceania, image=imagen)
     lbl_imagen.place(x=0,y=0)
 
-    lbl_Titulo = Label(ventana_Oceania, text="Oceania", background="white", fg="black", font=("Arial Black", 24), bg="white")
+    lbl_Titulo = Label(ventana_Oceania, text="OCEANIA", background="white", fg="black", font=("Arial Black", 24), bg="white")
     lbl_Titulo.place(x=50, y=10)
 
     # --- Contadores ---
@@ -755,7 +730,7 @@ def Oceania():
     lbl_vidas = Label(ventana_Oceania, text=f"Vidas: {vidas}", bg="white", font=("Arial Black", 24), background="white")
     lbl_vidas.place(x=980, y=10)
     
-    lbl_puntaje = Label(ventana_Oceania, text=f" Puntaje:{puntos}", bg="white", font=("Arial Black", 24), background="white")
+    lbl_puntaje = Label(ventana_Oceania, text=f" Puntaje: {puntos}", bg="white", font=("Arial Black", 24), background="white")
     lbl_puntaje.place(x=500, y=10)
 
     def contador_puntos():
@@ -823,7 +798,6 @@ def Oceania():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-            #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
             W_perdio.title("JUEGO TERMINADO")
@@ -856,39 +830,35 @@ def Oceania():
             Btn_Cerrar.place(x=365, y=310)
             
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
-            
-            print("MURIDO!!!!!!!!!!!!!!!!!!!!!!!111")
 
     # --- Imagenes Aleatorias ---
-    
     num = random.sample(range(1,14),4)
     
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Oceania\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
     lbl_Bandera = Label(ventana_Oceania, image=foto)
-    lbl_Bandera.place(x=440, y=100)
+    lbl_Bandera.place(x=405, y=100)
 
     # --- Texto de los Botones Aleatorio ---
-    
     paises = ["Relleno", "Australia", "Nauru", "Nueva Zelanda", "Fiyi", "Islas Marshall", "Islas Salomon", "Kiribati", "Micronesia", "Palaos", "Papua Nueva Guinea", "Samoa", "Tonga", "Tuvalu", "Vanuatu"]
 
     pos = [30, 320, 610, 900]
     posx = random.sample(range(0,4), 4)
 
     texto = paises[num[0]]
-    btn_Opcion1 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command= contador_puntos)
+    btn_Opcion1 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command= contador_puntos)
     btn_Opcion1.place(x=pos[posx[0]], y=450)
 
     texto = paises[num[1]]
-    btn_Opcion2 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(2))
+    btn_Opcion2 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(2))
     btn_Opcion2.place(x=pos[posx[1]], y=450)
 
     texto = paises[num[2]]
-    btn_Opcion3 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(3))
+    btn_Opcion3 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(3))
     btn_Opcion3.place(x=pos[posx[2]], y=450)
 
     texto = paises[num[3]]
-    btn_Opcion4 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
+    btn_Opcion4 = Button(ventana_Oceania, cursor="hand2", text=texto, width=35, height=10, bg="white", font=("Britannic Bold", 10), command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
     
     ventana_Oceania.mainloop()
@@ -912,7 +882,7 @@ def Abrir_Ventana_Menu():
     lbl_imagen = Label(Ventana_Menu, image=imagen)
     lbl_imagen.place(x=0,y=0)
     
-    lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="DeepSkyBlue4", bg="yellow", font=("Verdana", 35),  borderwidth=5, relief="groove" )
+    lbl_seleccion = Label(Ventana_Menu, text="SELECCIONA UN CONTINENTE:", fg="DeepSkyBlue4", bg="light goldenrod", font=("Verdana", 35),  borderwidth=5, relief="groove" )
     lbl_seleccion.place(x=0, y=0)
 
     imgAfrica = PhotoImage(file="Proyecto Videojuego Py\imagenes\Africa (Custom).png")
@@ -935,8 +905,8 @@ def Abrir_Ventana_Menu():
     Btn_Oceania = Button(Ventana_Menu, image=imgOceania, cursor="hand2", width=270, height=170, background="white", command=Oceania)
     Btn_Oceania.place(x=700, y=450)
 
-    Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", fg="black", font=("Verdana", 10), command=Volver)
-    Btn_Volver.place(x=1105, y=0)
+    Btn_Volver = Button(Ventana_Menu, activebackground="gray70", cursor="hand2", text="VOLVER", width=10, height=2, background="white", font=("Arial Black", 12), command=Volver)
+    Btn_Volver.place(x=1050, y=0)
     
     Ventana_Menu.mainloop()
     
@@ -952,7 +922,7 @@ imagen = PhotoImage(file="Proyecto Videojuego Py\imagenes\Flags_Fond (Custom).pn
 lbl_imagen = Label(Ventana_Principal, image=imagen)
 lbl_imagen.place(x=0,y=0)
 
-lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="DeepSkyBlue4", bg="yellow", font=("Verdana", 80),  borderwidth=5, relief="groove")
+lbl_Titulo = Label(Ventana_Principal, text="4 Paises 1 Bandera", fg="DeepSkyBlue4", bg="light goldenrod", font=("Verdana", 80),  borderwidth=5, relief="groove")
 lbl_Titulo.place(x=75, y=40)
 
 Btn_Comenazar = Button(Ventana_Principal, activebackground="gray70", cursor="hand2",  text="JUGAR", width=20, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Abrir_Ventana_Menu)
