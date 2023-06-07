@@ -13,7 +13,7 @@ import pygame
 
 def Links():
     import webbrowser
-    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
+    webbrowser.open("https://josuearipez.wixsite.com/abraham-y-josue")
 
 pygame.mixer.init()
 pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Carefree.mp3")
