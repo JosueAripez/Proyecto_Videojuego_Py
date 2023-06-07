@@ -4,3 +4,4 @@ Josue: 2
 Pooh: 3
 Josue: 7
 Francisco: 6
+Josue: 1

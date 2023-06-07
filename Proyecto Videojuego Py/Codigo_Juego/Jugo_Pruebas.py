@@ -11,6 +11,10 @@ import pygame
 
 # --- Funciones ---
 
+def Links():
+    import webbrowser
+    webbrowser.open("https://github.com/JosueAripez/Proyecto_Videojuego_Py")
+
 pygame.mixer.init()
 pygame.mixer.music.load("Proyecto Videojuego Py\Musica\Musica_Fondo.mp3")
 pygame.mixer.music.play(-1)
@@ -25,6 +29,18 @@ def ajuste():
     W_ajustes.iconbitmap("Proyecto Videojuego Py\imagenes\icono.ico")
     W_ajustes.resizable(0,0)
     pygame.mixer.music.unpause()
+    lblsond = Label(W_ajustes, text="Sonido")
+    lblsond.place(x=10, y=15)
+    
+    opcion = IntVar() # Como StrinVar pero en entero
+
+    Radiobutton(W_ajustes, text="SI", variable=opcion, value=1).pack()
+    Radiobutton(W_ajustes, text="NO", variable=opcion, value=2).pack()
+    if opcion == 1:
+        pygame.mixer.music.play(-1)
+    else:
+        pygame.mixer.music.pause()
+    
     W_ajustes.geometry("300x300+75+10")
     
     W_ajustes.mainloop()
@@ -326,7 +342,6 @@ def America():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-                    
             #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
@@ -394,6 +409,8 @@ def America():
     texto = paises[num[3]]
     btn_Opcion4 = Button(ventana_America, cursor="hand2", text=texto, width=35, height=10, command=lambda: contador_vidas(4))
     btn_Opcion4.place(x=pos[posx[3]], y=450)
+    
+    ventana_America.mainloop()
     
 
 def Asia():
@@ -485,7 +502,6 @@ def Asia():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-                    
             #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
@@ -646,7 +662,6 @@ def Europa():
                 with open("puntajes.txt", "a") as archivo:
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
-                
                     
             #aqui va ventana de cuando pierde
             Son_Click.play()
@@ -808,7 +823,6 @@ def Oceania():
                     archivo.write(f"{nombre_jugador}: {puntos}\n")
                 fulls()
                 
-                    
             #aqui va ventana de cuando pierde
             Son_Click.play()
             W_perdio = Toplevel()
@@ -951,9 +965,9 @@ Btn_Record.place(x=430, y=400)
 Btn_Salir = Button(Ventana_Principal, activebackground="gray70", cursor="hand2", text="SALIR", width=20, height=2, background="white", fg="black", borderwidth=5, relief="raised", font=("Verdana", 20), command=Salir)
 Btn_Salir.place(x=430, y=500)
 
-ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")
-Btn_ajustes = Button(Ventana_Principal, image=ajuste_img, cursor="hand2", bg="white", command=ajuste)
-Btn_ajustes.place(x=1130, y=580)
+"""ajuste_img = PhotoImage(file="Proyecto Videojuego Py\imagenes\co.png")"""
+Btn_ajustes = Button(Ventana_Principal, text="+", cursor="hand2", bg="white", command=Links)
+Btn_ajustes.place(x=1180, y=622)
 
 lbl_Create = Label(Ventana_Principal, text="Propiedad Intelectual y Creativa de: Jose Abraham Beristain Navarro y Josue Franciso Rojas Aripez ©", fg="black", bg="white", font=("Verdana", 10),  borderwidth=5)
 lbl_Create.place(x=5, y=620)
