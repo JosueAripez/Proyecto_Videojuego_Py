@@ -198,8 +198,8 @@ def Africa():
             nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
             nombre_label.place(x=260, y=140)
             
-            nombre_entry = Entry(W_perdio)
-            nombre_entry.place(x=290, y=210)
+            nombre_entry = Entry(W_perdio, font=("Arial", 18))
+            nombre_entry.place(x=220, y=210)
             
             lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
             lbl_Titulo.place(x=50, y=237)
@@ -352,8 +352,8 @@ def America():
             nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
             nombre_label.place(x=260, y=140)
             
-            nombre_entry = Entry(W_perdio)
-            nombre_entry.place(x=290, y=210)
+            nombre_entry = Entry(W_perdio, font=("Arial", 18))
+            nombre_entry.place(x=220, y=210)
             
             lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
             lbl_Titulo.place(x=50, y=237)
@@ -507,8 +507,8 @@ def Asia():
             nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
             nombre_label.place(x=260, y=140)
             
-            nombre_entry = Entry(W_perdio)
-            nombre_entry.place(x=290, y=210)
+            nombre_entry = Entry(W_perdio, font=("Arial", 18))
+            nombre_entry.place(x=220, y=210)
             
             lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
             lbl_Titulo.place(x=50, y=237)
@@ -663,8 +663,8 @@ def Europa():
             nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
             nombre_label.place(x=260, y=140)
             
-            nombre_entry = Entry(W_perdio)
-            nombre_entry.place(x=290, y=210)
+            nombre_entry = Entry(W_perdio, font=("Arial", 18))
+            nombre_entry.place(x=220, y=210)
             
             lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
             lbl_Titulo.place(x=50, y=237)
@@ -817,8 +817,8 @@ def Oceania():
             nombre_label = Label(W_perdio, text="Nombre:", font=("Verdana", 30))
             nombre_label.place(x=260, y=140)
             
-            nombre_entry = Entry(W_perdio)
-            nombre_entry.place(x=290, y=210)
+            nombre_entry = Entry(W_perdio, font=("Arial", 18))
+            nombre_entry.place(x=220, y=210)
             
             lbl_Titulo = Label(W_perdio, text="¿Quieres guardar tu puntaje?", fg="black", borderwidth=5, font=("Verdana", 30))
             lbl_Titulo.place(x=50, y=237)
