@@ -115,13 +115,24 @@ def Africa():
 
     def contador_puntos():
         nonlocal puntos
+        #nonlocal num_usados
         puntos += 1
         lbl_puntaje.config(text=f"Puntaje: {puntos}")
         Crt_Click.play()
         btn_Opcion1.config(bg="green")
 
         # --- configurar bandera ---
+            # --- verificar que no se repitan las banderas ---
+        '''    
         num = random.sample(range(1,56),4)
+        band = True
+        while band == True:
+            if num[0] in num_usados:
+                num = random.sample(range(1,56),4)
+            else:
+                band = False
+        '''
+                
         bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
         foto=PhotoImage(file=bandera)
         lbl_Bandera.config(image=foto)
@@ -213,7 +224,9 @@ def Africa():
             W_perdio.protocol("WM_DELETE_WINDOW", lambda: None)
 
     # --- Imagenes Aleatorias ---
+    num_usados = []
     num = random.sample(range(1,56),4)
+    num_usados.append(num[0])
 
     bandera = f"Proyecto Videojuego Py\imagenes\Banderas2\Africa\\band{num[0]}.png"
     foto=PhotoImage(file=bandera)
